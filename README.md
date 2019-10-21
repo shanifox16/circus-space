@@ -1,3 +1,5 @@
+[![Codeship Status for shanifox16/circus-space](https://app.codeship.com/projects/acd6da70-d682-0137-38f5-2ee50a1757e6/status?branch=master)](https://app.codeship.com/projects/370596)
+
 Welcome to Circus Space - a communication platform and video repository for circus instructors and students.
 
 This README would normally document whatever steps are necessary to get the
