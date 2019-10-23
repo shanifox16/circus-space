@@ -2,6 +2,21 @@
 
 Welcome to Circus Space - a communication platform and video repository for circus instructors and students.
 
+Please visit the application here:
+[Circus Space](http://circusspace.herokuapp.com/)
+
+Circus Space relies on logging in as an instructor or student.
+To view the instructor workflow, please use these login credentials:
+```
+email:
+password:
+```
+To view the instructor workflow, please use these login credentials:
+```
+email:
+password:
+```
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
