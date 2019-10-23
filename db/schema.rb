@@ -10,10 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_215518) do
+ActiveRecord::Schema.define(version: 2019_10_22_231013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_summaries", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "homework", null: false
+    t.bigint "individual_class_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["individual_class_id"], name: "index_class_summaries_on_individual_class_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "individual_classes", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "date", null: false
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_individual_classes_on_course_id"
+  end
+
+  create_table "personal_videos", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.boolean "public", default: false
+    t.boolean "certified", default: false
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_personal_videos_on_course_id"
+    t.index ["user_id"], name: "index_personal_videos_on_user_id"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_registrations_on_course_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
+  end
+
+  create_table "summary_comments", force: :cascade do |t|
+    t.string "body", null: false
+    t.bigint "user_id"
+    t.bigint "class_summary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_summary_id"], name: "index_summary_comments_on_class_summary_id"
+    t.index ["user_id"], name: "index_summary_comments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +88,16 @@ ActiveRecord::Schema.define(version: 2019_10_22_215518) do
     t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "video_comments", force: :cascade do |t|
+    t.string "body", null: false
+    t.bigint "personal_video_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["personal_video_id"], name: "index_video_comments_on_personal_video_id"
+    t.index ["user_id"], name: "index_video_comments_on_user_id"
   end
 
 end
