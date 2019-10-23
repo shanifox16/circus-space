@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative '../spec/support/factory_bot.rb'
+
+instructor = FactoryBot.create(:user, fname: "Leah", lname: "Abel", role: "instructor")
+student1 = FactoryBot.create(:user, fname: "Suzanne", lname: "Horowitz", email: "suzanne@gmail.com")
+student2 = FactoryBot.create(:user, fname: "Lauren", lname: "Sobel", email: "lauren@gmail.com")
+student3 = FactoryBot.create(:user, fname: "Adina", lname: "Smith", email: "adina@gmail.com")
+student4 = FactoryBot.create(:user, fname: "Jillian", lname: "Coulliard", email: "jillian1919@gmail.com")
+
+course1 = Course.create!(name: "Aerial Silks Level 1", description: "This is a beginner aerial silks course. No prior knowledge required")
+course2 = Course.create!(name: "Aerial Silks Level 2", description: "This is an intermediate aerial silks course. Students must have completed a full session of Level 1.")
+course3 = Course.create!(name: "Aerial Silks Level 3", description: "This is an advanced aerial silks course. Students be able to complete several drops in the air and be comfortable in the air for several minutes at a time.")
+
+registration1 = Registration.create!(user: instructor, course: course1)
+registration2 = Registration.create!(user: instructor, course: course2)
+registration3 = Registration.create!(user: instructor, course: course3)
+registration4 = Registration.create!(user: student4, course: course3)
+registration5 = Registration.create!(user: student4, course: course2)
+registration6 = Registration.create!(user: student1, course: course3)
+registration7 = Registration.create!(user: student2, course: course3)
+registration8 = Registration.create!(user: student3, course: course3)
+
+individual_class1 = IndividualClass.create!(name: "Class 1", date: "2019/10/08", course: course3)
+individual_class2 = IndividualClass.create!(name: "Class 2", date: "2019/10/15", course: course3)
+individual_class3 = IndividualClass.create!(name: "Class 3", date: "2019/10/22", course: course3)
+individual_class4 = IndividualClass.create!(name: "Class 4", date: "2019/10/29", course: course3)
+individual_class5 = IndividualClass.create!(name: "Class 5", date: "2019/11/05", course: course3)
+individual_class6 = IndividualClass.create!(name: "Class 6", date: "2019/11/12", course: course3)
+individual_class7 = IndividualClass.create!(name: "Class 1", date: "2019/10/09", course: course2)
+individual_class8 = IndividualClass.create!(name: "Class 2", date: "2019/10/16", course: course2)
+individual_class9 = IndividualClass.create!(name: "Class 3", date: "2019/10/23", course: course2)
+individual_class10 = IndividualClass.create!(name: "Class 4", date: "2019/10/30", course: course2)
+individual_class11 = IndividualClass.create!(name: "Class 5", date: "2019/11/06", course: course2)
+individual_class12 = IndividualClass.create!(name: "Class 6", date: "2019/11/13", course: course2)

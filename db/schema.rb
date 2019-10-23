@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_231013) do
+ActiveRecord::Schema.define(version: 2019_10_23_214535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_10_22_231013) do
     t.string "role", default: "student", null: false
     t.string "fname", null: false
     t.string "lname", null: false
-    t.string "username", null: false
     t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
