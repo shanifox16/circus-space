@@ -6,7 +6,7 @@ FactoryBot.define do
     sequence(:fname) {|n| "firstuser#{n}" }
     sequence(:lname) {|n| "lastuser#{n}" }
     role { 'student' }
-    password { 'password' }
-    password_confirmation { 'password' }
+    password { 'abc123' }
+    password_confirmation { 'abc123' }
   end
 end
