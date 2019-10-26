@@ -1,7 +1,18 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+import DashboardContainer from './dashboard/DashboardContainer'
+
+export const App = props => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={DashboardContainer} />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  )
 }
 
 export default App
