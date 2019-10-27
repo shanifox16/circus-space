@@ -5,4 +5,6 @@ class PersonalVideo < ApplicationRecord
   belongs_to :user
   belongs_to :course
   has_many :video_comments
+
+  mount_uploader :video, VideoUploader
 end

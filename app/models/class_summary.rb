@@ -5,4 +5,6 @@ class ClassSummary < ApplicationRecord
 
   belongs_to :individual_class
   has_many :summary_comments
+
+  mount_uploader :video, VideoUploader
 end
