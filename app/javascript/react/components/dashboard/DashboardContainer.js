@@ -15,7 +15,10 @@ const DashboardContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      // debugger
+      // This is working
+      // Currently sending the next 10 calendar events
+      // Change to send all events for the next few days/week
+      // Decide where to print in React/move this fetch to the appropriate place
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
