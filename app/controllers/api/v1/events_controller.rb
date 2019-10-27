@@ -13,6 +13,12 @@ class Api::V1::EventsController < ApiController
     auth.fetch_access_token!
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
-    render json: calendar.list_events("primary")
+    events = calendar.list_events("primary",
+      max_results:   10,
+      single_events: true,
+      order_by: "startTime",
+      time_min: DateTime.now.rfc3339
+    )
+    render json: events.items
   end
 end
