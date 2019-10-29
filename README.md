@@ -6,15 +6,15 @@ Please visit the application here:
 [Circus Space](http://circusspace.herokuapp.com/)
 
 Circus Space relies on logging in as an instructor or student.
-To view the instructor workflow, please use these login credentials:
+To view the instructor workflow, please log in using Google with these credentials:
 ```
-email:
-password:
+email: circusspaceinstructor@gmail.com
+password: circusspace
 ```
-To view the instructor workflow, please use these login credentials:
+To view the instructor workflow, please log in using Google with these credentials:
 ```
-email:
-password:
+email: circusspacestudent@gmail.com
+password: circusspace
 ```
 
 This README would normally document whatever steps are necessary to get the
