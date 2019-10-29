@@ -43,5 +43,14 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
       expect(returned_json["course"]["individual_classes"][0]["class_summary"]["body"]).to eq "This is the summary"
       expect(returned_json["course"]["individual_classes"][0]["class_summary"]["homework"]).to eq "Homework"
     end
+
+    it "should return the current user signed in" do
+      user = FactoryBot.create(:user, fname: "Jeremy")
+      sign_in user
+      get :show, params: {id: course1.id}
+      returned_json = JSON.parse(response.body)
+
+      expect(returned_json["course"]["current_user"]["fname"]).to eq "Jeremy"
+    end
   end
 end

@@ -5,6 +5,7 @@ import ClassIndexContainer from './ClassIndexContainer'
 const CourseShowContainer = props => {
   const [course, setCourse] = useState({})
   const [individualClasses, setIndividualClasses] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
   let courseId = props.match.params.id
 
@@ -23,7 +24,7 @@ const CourseShowContainer = props => {
     .then(body => {
       setCourse(body.course)
       setIndividualClasses(body.course.individual_classes)
-      setUsers(body.course.users)
+      setCurrentUser(body.course.current_user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -39,7 +40,9 @@ const CourseShowContainer = props => {
         <div className="cell small-12 medium-8 large-9 grid-container">
           <div className="grid-x grid-margin-x">
             <ClassIndexContainer
+              course={course}
               individualClasses={individualClasses}
+              currentUser={currentUser}
             />
           </div>
         </div>
