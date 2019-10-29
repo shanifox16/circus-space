@@ -13,9 +13,11 @@ describe("ClassTile", () => {
     wrapper = mount(
       <BrowserRouter>
         <ClassTile
+          id="1"
           name="Class 1"
           date="2019/17/08"
           summaryVideo="URL"
+          summaryTitle="hip keys"
           summaryPosted={true}
         />
       </BrowserRouter>
@@ -32,27 +34,16 @@ describe("ClassTile", () => {
     )
   })
 
-  it("renders an h4 tag with the class name", () => {
-    expect(wrapper.find("h4").text()).toBe("Class 1")
+  it("renders an h4 tag with the class name if summary is not posted", () => {
+    expect(wrapper2.find("h4").text()).toBe("Class 1")
+  })
+
+  it("renders an h4 tag with the summary name if a summary is posted", () => {
+    expect(wrapper.find("h4").text()).toBe("hip keys")
   })
 
   it("renders an h5 tag with the date", () => {
     expect(wrapper.find("h5").text()).toBe("2019/17/08")
   })
 
-  it("renders a video tag if a summary has been posted", () => {
-    expect(wrapper.find("video").exists()).toBe(true)
-  })
-
-  it("does not render an h6 when a summary has been posted", () => {
-    expect(wrapper.find("h6").exists()).toBe(false)
-  })
-
-  it("renders an h6 if a summary hasn't been posted", () => {
-    expect(wrapper2.find("h6").text()).toBe("No summary")
-  })
-
-  it("does not render a video tag when a summary has not been posted", () => {
-    expect(wrapper2.find("video").exists()).toBe(false)
-  })
 })
