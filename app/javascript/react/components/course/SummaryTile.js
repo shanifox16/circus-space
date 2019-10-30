@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Redirect } from "react-router-dom"
+import React from 'react'
 
 const SummaryTile = props => {
 
@@ -11,8 +10,7 @@ const SummaryTile = props => {
 
   if (props.summaryPosted) {
     summaryContent =
-      <video className="video-thumbnail" id="video-thumbnail" onClick={handleVideoClick}>
-        <source src={`${props.summaryVideo}`} />
+      <video src={`${props.summaryVideo}`} className="video-thumbnail" id="video-thumbnail" onClick={handleVideoClick}>
       </video>
   } else {
     summaryContent = <h6>{props.summaryVideo}</h6>

@@ -1,0 +1,25 @@
+.comment-form {
+  margin: 5%;
+  position: sticky;
+  bottom: 20px;
+  background-color: #6B717160;
+  border-radius: 20px;
+  padding: 10px;
+
+  .input-field {
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px black;
+    height: 60px;
+  }
+
+  .submit-button {
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 5px;
+    border-radius: 12px;
+    border-color: #E691B9;
+    background-color: #E691B9;
+    box-shadow: 1px 1px 2px black;
+    outline: none;
+  }
+}

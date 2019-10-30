@@ -1,4 +1,9 @@
 class Api::V1::ClassSummariesController < ApiController
+  def show
+    summary = ClassSummary.find(params[:id])
+    render json: summary, serializer: ClassSummarySerializer, scope: {current_user: current_user}
+  end
+
   def create
     summary = ClassSummary.new(summary_params)
     individual_class = IndividualClass.find(params[:individual_class_id])

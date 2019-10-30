@@ -1,0 +1,46 @@
+.summary-comments-tile {
+  background-color: #C3CFEE;
+  height: 100vh;
+
+  .comment-header {
+    font-weight: bold;
+    font-size: .8em;
+  }
+
+  .comment-tile {
+    margin: 5%;
+    padding: 1px;
+    font-size: .8em;
+  }
+
+  .student {
+    .comment-body {
+      background-color: #F4F4F4;
+      padding: 5% 1% 1% 5%;
+      margin-right: 50px;
+      border-radius: 20px;
+      border-top-left-radius: 0px;
+    }
+  }
+
+  .instructor {
+    .comment-body {
+      background-color: #81E1DA;
+      padding: 5% 1% 1% 5%;
+      margin-right: 50px;
+      border-radius: 20px;
+      border-top-left-radius: 0px;
+    }
+  }
+
+  .current-user {
+    text-align: right;
+    .comment-body {
+      background-color: #F2D0E0;
+      padding: 5% 5% 1% 1%;
+      margin-left: 50px;
+      border-radius: 20px;
+      border-top-right-radius: 0px;
+    }
+  }
+}
