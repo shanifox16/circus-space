@@ -8,7 +8,7 @@ const CourseShowContainer = props => {
   const [currentUser, setCurrentUser] = useState({})
 
   let courseId = props.match.params.id
-
+  
   useEffect(() => {
     fetch(`/api/v1/courses/${courseId}`)
     .then(response => {

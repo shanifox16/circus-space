@@ -15,7 +15,7 @@ const ClassTile = props => {
   }
 
   if (clickedStatus) {
-    return <Redirect to={`/class_summaries/${props.id}`} />
+    return <Redirect to={`/class_summaries/${props.summaryId}`} />
   } else {
     return(
       <div className="class-tile cell small-12 medium-6 large-4">

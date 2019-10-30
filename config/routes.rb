@@ -15,7 +15,9 @@ Rails.application.routes.draw do
       resources :individual_classes, only: [:show] do
         resources :class_summaries, only: [:index, :create]
       end
-      resources :class_summaries, only: [:show]
+      resources :class_summaries, only: [:show] do
+        resources :summary_comments, only: [:index, :create]
+      end
       resources :events, only: [:index]
     end
   end
