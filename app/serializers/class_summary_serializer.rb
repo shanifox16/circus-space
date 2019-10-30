@@ -1,5 +1,5 @@
 class ClassSummarySerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :homework, :video, :individual_class_id, :date, :current_user
+  attributes :id, :title, :body, :homework, :video, :individual_class_id, :date, :current_user, :created_at
 
   has_many :summary_comments
 
