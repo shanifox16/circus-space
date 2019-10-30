@@ -14,7 +14,7 @@ class Api::V1::EventsController < ApiController
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
     events = calendar.list_events("primary",
-      max_results:   10,
+      time_max: (DateTime.now+3).rfc3339,
       single_events: true,
       order_by: "startTime",
       time_min: DateTime.now.rfc3339

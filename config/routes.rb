@@ -18,7 +18,9 @@ Rails.application.routes.draw do
       resources :class_summaries, only: [:show] do
         resources :summary_comments, only: [:index, :create]
       end
+      resources :notifications, only: [:index]
       resources :events, only: [:index]
+      resources :subscribers, only: [:index, :create]
     end
   end
 end
