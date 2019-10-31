@@ -4,7 +4,7 @@ class Api::V1::NotificationsController < ApiController
   def index
     auth = Signet::OAuth2::Client.new(
       token_credential_uri: 'https://oauth2.googleapis.com/token',
-      access_token: current_user.access_token,
+      authorization_token: current_user.access_token,
       client_id: ENV["GOOGLE_CLIENT_ID"],
       client_secret: ENV["GOOGLE_CLIENT_SECRET"],
       refresh_token: current_user.refresh_token
