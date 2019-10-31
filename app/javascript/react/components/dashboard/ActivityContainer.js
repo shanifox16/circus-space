@@ -71,6 +71,7 @@ const ActivityContainer = props => {
 
   return(
     <div className="activity-container">
+      <h5 className="header text-center">Activity</h5>
       {notificationData}
     </div>
   )

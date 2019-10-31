@@ -13,17 +13,17 @@ const InstructorDashboardContainer = props => {
           notifications={props.notifications}
         />
       </div>
-      <div className="grid-x grid-margin-x cell small-12 medium-6 large-8">
-        <div className="event-container cell small-12 large-6 text-center">
+      <div className="dashboard-squares grid-x grid-margin-x cell small-12 medium-6 large-8">
+        <div className="event-container top-left-square cell small-12 large-6 text-center">
           <EventContainer
             events={props.events}
           />
         </div>
-        <div className="top-image cell small-12 large-6">
+        <div className="top-right-square cell small-12 large-6">
         </div>
-        <div className="bottom-image cell small-12 large-6">
+        <div className="bottom-left-square cell small-12 large-6">
         </div>
-        <div className="buttons-container cell small-12 large-6">
+        <div className="buttons-container bottom-right-square cell small-12 large-6">
           <ButtonsContainer
           />
         </div>

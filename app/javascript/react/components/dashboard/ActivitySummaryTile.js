@@ -16,11 +16,16 @@ const ActivitySummaryTile = props => {
   }
 
   return(
-    <div>
-      {summaryDiv}
-      <ActivityDateTile
-        date={props.date}
-      />
+    <div className="activity-tile grid-x grid-margin-x">
+      <i className="fa fa-2x fa-sticky-note cell-2"></i>
+      <div className="summary-text">
+        <div>
+          {summaryDiv}
+        </div>
+        <ActivityDateTile
+          date={props.date}
+          />
+      </div>
     </div>
   )
 }

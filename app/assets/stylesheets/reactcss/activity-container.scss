@@ -1,4 +1,9 @@
 .activity-container {
-  padding-left: 1%;
-  padding-top: 1%;
+  padding-top: 10px;
+  overflow-y: scroll;
+
+  .header {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }

@@ -9,11 +9,16 @@ import ActivitySummaryTile from "./dashboard/ActivitySummaryTile"
 describe("ActivitySummaryTile", () => {
   let wrapper
 
+  let currentUser = {
+    role: "instructor"
+  }
+
   beforeEach(() => {
     wrapper = mount(
       <BrowserRouter>
         <ActivitySummaryTile
           title="Hip Key"
+          currentUser={currentUser}
         />
       </BrowserRouter>
     )

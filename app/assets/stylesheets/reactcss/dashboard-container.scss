@@ -2,22 +2,38 @@
 
   .activity-container {
     height: 100vh;
-    background-color: grey;
+    background-color: #C3CFEE;
   }
 
-  .event-container {
-    background-color: pink;
+  .top-left-square {
+    background-color: #C3CFEE;
+    margin-top: 2%;
+    margin-left: 18%;
+    margin-bottom: 0px;
+    width: 260px;
+    height: 260px;
   }
 
-  .top-image {
+  .top-right-square {
     background-color: teal;
+    margin-top: 2%;
+    margin-right: 5%;
+    width: 260px;
+    height: 260px;
   }
 
-  .bottom-image {
+  .bottom-left-square {
     background-color: teal;
+    margin-top: 0px;
+    margin-left: 18%;
+    width: 260px;
+    height: 260px;
   }
 
-  .buttons-container {
-    background-color: pink;
+  .bottom-right-square {
+    background-color: #C3CFEE;
+    margin-right: 5%;
+    width: 260px;
+    height: 260px;
   }
 }

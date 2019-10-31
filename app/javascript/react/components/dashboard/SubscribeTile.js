@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const SubscribeTile = props => {
   const [subscriberData, setSubscriberData] = useState({
+    mailchimpAction: "",
     mailchimpId: "",
     status: "",
     fname: "",
@@ -14,7 +15,7 @@ const SubscribeTile = props => {
 
   const setSubscribeState = event => {
     setSubscriberData({
-      mailchimpId: mailchimpId,
+      mailchimpAction: "post",
       status: "subscribed",
       fname: props.currentUser.fname,
       lname: props.currentUser.lname,
@@ -24,8 +25,20 @@ const SubscribeTile = props => {
 
   const setUnsubscribeState = event => {
     setSubscriberData({
+      mailchimpAction: "patch",
       mailchimpId: mailchimpId,
       status: "unsubscribed",
+      fname: props.currentUser.fname,
+      lname: props.currentUser.lname,
+      email: props.currentUser.email,
+    })
+  }
+
+  const setResubscribeState = event => {
+    setSubscriberData({
+      mailchimpAction: "patch",
+      mailchimpId: mailchimpId,
+      status: "subscribed",
       fname: props.currentUser.fname,
       lname: props.currentUser.lname,
       email: props.currentUser.email,
@@ -52,22 +65,22 @@ const SubscribeTile = props => {
             <input className="subscribe-button" type="submit" value="Unsubscribe" onClick={setUnsubscribeState} />
           </form>
       } else {
-        // status = subscriber.status
-        // mailchimpId = subscriber.id
-        // button =
-        //   <form onSubmit={handleSubmit}>
-        //     <input className="subscribe-button" type="submit" value="Unsubscribe" onClick={setUnsubscribeState} />
-        //   </form>
+        status = subscriber.status
+        mailchimpId = subscriber.id
+        button =
+          <form onSubmit={handleSubmit}>
+            <input className="subscribe-button" type="submit" value="Subscribe" onClick={setResubscribeState} />
+          </form>
       }
     }
   })
 
   return(
     <div>
-      <h5>Newsletter</h5>
-      <p>Once weekly newsletter sent by your instructor</p>
-      <h6>Status</h6>
-      <p>{status}</p>
+      <h6 className="header">Newsletter</h6>
+      <p className="subscribe-text">Once weekly newsletter sent by your instructor</p>
+      <h6 className="header">Status</h6>
+      <p className="subscribe-text">{status}</p>
       {button}
     </div>
   )
