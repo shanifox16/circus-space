@@ -9,7 +9,7 @@ class Api::V1::SubscribersController < ApiController
 
   def create
     if params["status"] == "subscribed"
-      data = HTTParty.post('https://us20.api.mailchimp.com/3.0/lists/fa6ed98e87/members',
+      data = HTTParty.put("https://us20.api.mailchimp.com/3.0/lists/fa6ed98e87/members/#{params["mailchimpId"]}",
         basic_auth: {username: ENV["MAILCHIMP_USERNAME"], password: ENV["MAILCHIMP_PASSWORD"]},
         content_type: "application/json",
         body: ({
@@ -21,6 +21,7 @@ class Api::V1::SubscribersController < ApiController
           }
         }).to_json
       )
+      binding.pry
     else
       data = HTTParty.patch("https://us20.api.mailchimp.com/3.0/lists/fa6ed98e87/members/#{params["mailchimpId"]}",
         basic_auth: {username: ENV["MAILCHIMP_USERNAME"], password: ENV["MAILCHIMP_PASSWORD"]},

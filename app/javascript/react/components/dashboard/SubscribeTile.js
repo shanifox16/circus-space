@@ -42,7 +42,7 @@ const SubscribeTile = props => {
     </form>
 
   props.subscribers.forEach(subscriber => {
-    if (subscriber.email_address === props.currentUser.email) {
+    if (subscriber.email_address === props.currentUser.email && subscriber.status === "subscribed") {
       status = subscriber.status
       mailchimpId = subscriber.id
       button =
