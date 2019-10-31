@@ -12,13 +12,16 @@ const ActivityCommentTile = props => {
   })
 
   return(
-    <div>
-      <div>
-        {commentUser} added a comment
+    <div className="activity-tile grid-x grid-margin-x">
+      <i className="fa fa-2x fa-comments cell-2"></i>
+      <div className="cell-10 comment-text">
+        <div>
+          {commentUser} added a comment
+        </div>
+        <ActivityDateTile
+          date={props.date}
+          />
       </div>
-      <ActivityDateTile
-        date={props.date}
-      />
     </div>
   )
 }

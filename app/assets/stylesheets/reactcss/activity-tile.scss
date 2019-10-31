@@ -1,0 +1,42 @@
+.activity-tile {
+  background-color: #F4F4F4;
+  margin: 5% 9% 2% 9%;
+  padding: 3%;
+  border-radius: 10px;
+
+  .summary-text {
+    width: 315px;
+    padding-left: 20px;
+  }
+
+  .subscriber-text {
+    width: 315px;
+    padding-left: 20px;
+  }
+
+  .comment-text {
+    width: 315px;
+    padding-left: 20px;
+  }
+
+  .event-text {
+    width: 315px;
+    padding-left: 20px;
+  }
+
+  .fa-comments {
+    color: #66CEC8;
+  }
+
+  .fa-sticky-note {
+    color: #ECB4CF;
+  }
+
+  .fa-paper-plane {
+    color: #F2D076;
+  }
+
+  .fa-heartbeat {
+    color: #D18AEA;
+  }
+}
