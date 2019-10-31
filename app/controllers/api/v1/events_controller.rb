@@ -7,9 +7,9 @@ class Api::V1::EventsController < ApiController
       authorization_token: current_user.access_token,
       client_id: ENV["GOOGLE_CLIENT_ID"],
       client_secret: ENV["GOOGLE_CLIENT_SECRET"],
-      refresh_token: current_user.refresh_token
+      refresh_token: current_user.refresh_token,
+      grant_type: "authorization_code"
     )
-    auth.scope = 'https://www.googleapis.com/auth/calendar.events'
     auth.fetch_access_token!
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
