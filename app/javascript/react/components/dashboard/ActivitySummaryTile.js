@@ -17,7 +17,7 @@ const ActivitySummaryTile = props => {
 
   return(
     <div className="activity-tile grid-x grid-margin-x">
-      <i className="fa fa-2x fa-sticky-note cell-2"></i>
+      <i className="fa fa-2x fa-list cell-2"></i>
       <div className="summary-text">
         <div>
           {summaryDiv}
