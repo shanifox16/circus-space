@@ -20,10 +20,10 @@ feature 'user signs out', %Q{
 
     click_button 'Log in'
 
-    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content('Sign Out')
 
     click_link 'Sign Out'
-    expect(page).to have_content('You need to sign in or sign up before continuing')
+    expect(page).to have_content('Log in')
   end
 
   scenario 'unauthenticated user attempts to sign out' do
