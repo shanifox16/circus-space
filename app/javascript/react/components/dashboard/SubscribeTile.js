@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import _ from "lodash"
 
 const SubscribeTile = props => {
   const [subscriberData, setSubscriberData] = useState({
@@ -58,14 +59,14 @@ const SubscribeTile = props => {
   props.subscribers.forEach(subscriber => {
     if (subscriber.email_address === props.currentUser.email) {
       if (subscriber.status === "subscribed") {
-        status = subscriber.status
+        status = _.capitalize(subscriber.status)
         mailchimpId = subscriber.id
         button =
           <form onSubmit={handleSubmit}>
             <input className="subscribe-button" type="submit" value="Unsubscribe" onClick={setUnsubscribeState} />
           </form>
       } else {
-        status = subscriber.status
+        status = _.capitalize(subscriber.status)
         mailchimpId = subscriber.id
         button =
           <form onSubmit={handleSubmit}>
