@@ -3,7 +3,7 @@
 Welcome to Circus Space - a communication platform and video repository for circus instructors and students.
 
 Please visit the application here:
-[Circus Space](http://circusspace.herokuapp.com/)
+[Circus Space](https://circusspace.herokuapp.com/)
 
 Circus Space relies on logging in as an instructor or student.
 To view the instructor workflow, please log in using Google with these credentials:
