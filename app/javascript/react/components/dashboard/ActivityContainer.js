@@ -10,16 +10,8 @@ const ActivityContainer = props => {
   let today = new Date()
 
   const notificationData = props.notifications.map(notification => {
-    if (notification.homework) {
-      return(
-        <ActivitySummaryTile
-          key={notification.id}
-          id={notification.id}
-          title={notification.title}
-          date={notification.created_at}
-        />
-      )
-    } else if (notification.summary){
+    if (notification.summary){
+      if (props.currentUser.role === "instructor") {
         return(
           <ActivityEventTile
             key={notification.id}
@@ -28,17 +20,30 @@ const ActivityContainer = props => {
             date={notification.created_at}
           />
         )
+      }
     } else if (notification.email) {
-      return(
-        <ActivitySubscriberTile
-          key={notification.id}
-          id={notification.id}
-          email={notification.email}
-          fname={notification.fname}
-          lname={notification.lname}
-          date={notification.created_at}
-        />
-      )
+      if (props.currentUser.role === "instructor") {
+        return(
+          <ActivitySubscriberTile
+            key={notification.id}
+            id={notification.id}
+            email={notification.email}
+            fname={notification.fname}
+            lname={notification.lname}
+            date={notification.created_at}
+          />
+        )
+      }
+    } else if (notification.homework) {
+        return(
+          <ActivitySummaryTile
+            key={notification.id}
+            id={notification.id}
+            currentUser={props.currentUser}
+            title={notification.title}
+            date={notification.created_at}
+          />
+        )
     } else if (notification.video) {
       return(
         <ActivityVideoTile

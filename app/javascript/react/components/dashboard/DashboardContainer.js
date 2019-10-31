@@ -7,6 +7,7 @@ const DashboardContainer = props => {
   const [users, setUsers] = useState([])
   const [notifications, setNotifications] = useState([])
   const [events, setEvents] = useState([])
+  const [subscribers, setSubscribers] = useState([])
 
   useEffect(() => {
     fetch('/api/v1/notifications')
@@ -42,7 +43,49 @@ const DashboardContainer = props => {
       setEvents(body)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+
+    fetch('/api/v1/subscribers')
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage)
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      setSubscribers(body)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
+
+  const addSubscriber = subscriberData => {
+    fetch('/api/v1/subscribers', {
+      credentials: "same-origin",
+      method: 'POST',
+      body: JSON.stringify(subscriberData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      setSubscribers([...subscribers, body])
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
 
   if (currentUser.role === "instructor") {
     return(
@@ -59,7 +102,13 @@ const DashboardContainer = props => {
     return(
       <div>
         <StudentDashboardContainer
-          />
+          currentUser={currentUser}
+          users={users}
+          notifications={notifications}
+          events={events}
+          subscribers={subscribers}
+          addSubscriber={addSubscriber}
+        />
       </div>
     )
   }
