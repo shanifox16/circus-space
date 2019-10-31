@@ -21,7 +21,7 @@ class Api::V1::NotificationsController < ApiController
     )
 
     mailchimpData = HTTParty.get('https://us20.api.mailchimp.com/3.0/lists/fa6ed98e87/members',
-      basic_auth: {username: 'shanifox16', password: '73c8ed95e3ecc43e886481a1ef158901-us20'}
+      basic_auth: {username: ENV["MAILCHIMP_USERNAME"], password: ENV["MAILCHIMP_PASSWORD"]}
     )
 
     notification_list = []
