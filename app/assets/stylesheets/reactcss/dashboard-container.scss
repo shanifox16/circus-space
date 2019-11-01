@@ -25,7 +25,8 @@
   }
 
   .top-right-square {
-    background-color: teal;
+    background: image-url("/assets/dancer-picture.jpg");
+    background-size: contain;
     margin-top: 2%;
     margin-right: 5%;
     width: 260px;
@@ -34,7 +35,8 @@
   }
 
   .bottom-left-square {
-    background-color: teal;
+    background: image-url("/assets/rings-picture.jpg");
+    background-size: contain;
     margin-right: 15px;
     margin-left: 18%;
     width: 260px;
