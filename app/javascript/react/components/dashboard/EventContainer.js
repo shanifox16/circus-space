@@ -106,6 +106,7 @@ const EventContainer = props => {
       <div>
         {futureEvents}
       </div>
+      <img src="/assets/powered_by_google.jpg" className="google-image"></img>
     </div>
   )
 }
