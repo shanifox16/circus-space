@@ -1,4 +1,10 @@
 .top-bar {
+  a {
+    font-weight: bold;
+  }
+}
+
+.top-bar-signed-in {
   background-color: #49177E;
 
   .right {
@@ -8,5 +14,13 @@
 
   a {
     color: #DFEAE9;
+  }
+}
+
+.top-bar-signed-out {
+  background-color: #49177E;
+
+  a {
+    color: white;
   }
 }

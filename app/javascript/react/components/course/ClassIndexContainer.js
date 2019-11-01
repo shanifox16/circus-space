@@ -15,7 +15,7 @@ const ClassIndexContainer = props => {
       summaryId = individualClass.class_summary.id
       summaryPosted = true
     } else if (props.currentUser.role === "instructor") {
-      summaryVideo = <Link to={`/individual_classes/${individualClass.id}/class_summaries/new`}>Add Class Summary</Link>
+      summaryVideo = <Link to={`/individual_classes/${individualClass.id}/class_summaries/new`}>Add Summary</Link>
       summaryTitle = individualClass.name
       summaryPosted = false
     } else {

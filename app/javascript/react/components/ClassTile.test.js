@@ -15,7 +15,7 @@ describe("ClassTile", () => {
         <ClassTile
           id="1"
           name="Class 1"
-          date="2019/17/08"
+          date="2019-08-17"
           summaryVideo="URL"
           summaryTitle="hip keys"
           summaryPosted={true}
@@ -26,7 +26,7 @@ describe("ClassTile", () => {
       <BrowserRouter>
         <ClassTile
           name="Class 1"
-          date="2019/17/08"
+          date="2019-08-17"
           summaryVideo="No summary"
           summaryPosted={false}
         />
@@ -42,8 +42,8 @@ describe("ClassTile", () => {
     expect(wrapper.find("h4").text()).toBe("hip keys")
   })
 
-  it("renders an h5 tag with the date", () => {
-    expect(wrapper.find("h5").text()).toBe("2019/17/08")
+  it("renders a tag with the date", () => {
+    expect(wrapper.find("#class-date").text()).toBe("08 / 17")
   })
 
 })
