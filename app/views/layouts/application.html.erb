@@ -8,20 +8,21 @@
 </head>
 <body>
 
-  <nav class="top-bar">
-    <h1><a href="/">CircusSpace</a></h1>
+  <% if current_user %>
+    <nav class="top-bar top-bar-signed-in">
+      <h1><a href="/">CircusSpace</a></h1>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
+      <section class="top-bar-section">
+        <ul class="right">
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+        </ul>
+      </section>
+    </nav>
+  <% else %>
+    <nav class="top-bar top-bar-signed-out">
+      <h1><a href="/">CircusSpace</a></h1>
+    </nav>
+  <% end %>
 
   <%= yield %>
 

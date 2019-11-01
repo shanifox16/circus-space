@@ -99,9 +99,10 @@ const SummaryForm = props => {
   }
 
   return(
-    <div className="grid-container form-container">
-      <h2>Class Summary</h2>
+    <div className="grid-container summary-form">
+      <div className="spacer"></div>
       <form onSubmit={handleSubmit}>
+        <h2 className="form-header text-center">Class Summary</h2>
         <ErrorList
           errors={errors}
         />
@@ -133,7 +134,7 @@ const SummaryForm = props => {
         </label>
 
         <section>
-          <div>
+          <div className="dropzone">
             <Dropzone
               className="video-uploads"
               multiple={false}
@@ -155,8 +156,9 @@ const SummaryForm = props => {
             </ul>
           </aside>
         </section>
-
-        <input type="submit" value="Post Summary" />
+        <div className="grid-x grid-margin-x">
+          <input type="submit" class="submit-button cell small-4 small-offset-4" value="Post Summary" />
+        </div>
       </form>
     </div>
   )

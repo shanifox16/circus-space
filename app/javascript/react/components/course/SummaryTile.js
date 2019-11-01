@@ -13,11 +13,11 @@ const SummaryTile = props => {
       <video src={`${props.summaryVideo}`} className="video-thumbnail" id="video-thumbnail" onClick={handleVideoClick}>
       </video>
   } else {
-    summaryContent = <h6>{props.summaryVideo}</h6>
+    summaryContent = <h6 className="summary-text">{props.summaryVideo}</h6>
   }
 
   return(
-    <div>
+    <div className="summary-content">
       {summaryContent}
     </div>
   )
