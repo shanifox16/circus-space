@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/courses/:id', to: 'homes#index'
   get '/individual_classes/:id/class_summaries/new', to: 'homes#index'
   get '/class_summaries/:id', to: 'homes#index'
+  get '/personal_videos', to: 'homes#index'
+  get '/personal_videos/new', to: 'homes#index'
+  get '/personal_videos/:id', to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
       resources :class_summaries, only: [:show] do
         resources :summary_comments, only: [:index, :create]
       end
+      resources :personal_videos, only: [:index, :show, :new, :create]
       resources :notifications, only: [:index]
       resources :events, only: [:index]
       resources :subscribers, only: [:index, :create]

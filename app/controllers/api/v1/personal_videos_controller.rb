@@ -1,11 +1,34 @@
 class Api::V1::PersonalVideosController < ApiController
-  def create
+  def index
+    render json: PersonalVideo.where(public: true)
   end
 
-  private
+  def show
+    render json: PersonalVideo.find(params[:id])
+  end
 
-  def video_params
-    # Add video here
-    # Using params[:video] will access the video file from Dropzone
+  def new
+    render json: current_user.courses
+  end
+
+  def create
+    params[:course] = params[:course].to_i
+    video = PersonalVideo.new(
+      title: params[:title],
+      body: params[:body],
+      public: params[:public],
+      video: params[:video],
+      course_id: params[:course]
+    )
+    video.user = current_user
+
+    if video.save
+      render json: video
+    else
+      render json: {
+        errors: video.errors.messages,
+        fields: video
+      }
+    end
   end
 end
