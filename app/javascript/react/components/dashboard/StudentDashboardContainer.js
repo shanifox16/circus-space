@@ -2,6 +2,7 @@ import React from 'react'
 import ActivityContainer from "./ActivityContainer"
 import EventContainer from "./EventContainer"
 import SubscribeTile from "./SubscribeTile"
+import VideoButtonsContainer from "./VideoButtonsContainer"
 
 const StudentDashboardContainer = props => {
   const addSubscriber = subscriberData => {
@@ -30,7 +31,10 @@ const StudentDashboardContainer = props => {
           </div>
         </div>
         <div className="cell bottom-row-squares grid-x">
-          <div className="bottom-left-square cell small-12 large-4">
+          <div className="bottom-left-square video-buttons-container cell small-12 large-4">
+            <VideoButtonsContainer
+              currentUser={props.currentUser}
+            />
           </div>
           <div className="bottom-middle-square cell small-12 large-4">
           </div>
