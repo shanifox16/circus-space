@@ -1,8 +1,11 @@
 .course-show-tile {
   background-color: #C3CFEE;
-  height: 100vh;
+  height: 100%;
   padding: 15%;
   list-style-type: none;
+  border-right-style: solid;
+  border-right-width: thin;
+  border-right-color: #868388;
 
   h6 {
     font-weight: bold;
@@ -11,5 +14,29 @@
 
   p {
     margin-bottom: 30%;
+  }
+
+  .instructor {
+    background-color: #F2D0E0;
+    padding: 10px 5px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #868388;
+  }
+
+  .student {
+    background-color: #F2D0E0;
+    padding: 10px 5px;
+    margin: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #868388;
+  }
+
+  .fa-child {
+    padding-right: 20px;
+    color: #868388;
   }
 }

@@ -8,7 +8,7 @@ const CourseShowContainer = props => {
   const [currentUser, setCurrentUser] = useState({})
 
   let courseId = props.match.params.id
-  
+
   useEffect(() => {
     fetch(`/api/v1/courses/${courseId}`)
     .then(response => {
@@ -31,20 +31,18 @@ const CourseShowContainer = props => {
 
   return(
     <div className="course-show text-center">
-      <div className="grid-x grid-margin-x">
+      <div className="grid-x">
         <div className="cell small-12 medium-4 large-3">
           <CourseShowTile
             course={course}
           />
         </div>
-        <div className="cell small-12 medium-8 large-9 grid-container">
-          <div className="grid-x grid-margin-x">
-            <ClassIndexContainer
-              course={course}
-              individualClasses={individualClasses}
-              currentUser={currentUser}
-            />
-          </div>
+        <div className="cell small-12 medium-8 large-9">
+          <ClassIndexContainer
+            course={course}
+            individualClasses={individualClasses}
+            currentUser={currentUser}
+          />
         </div>
       </div>
     </div>

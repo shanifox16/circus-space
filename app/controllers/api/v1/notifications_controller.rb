@@ -75,7 +75,7 @@ class Api::V1::NotificationsController < ApiController
       notification_list << member_info(subscriber)
     end
 
-    notification_list.sort_by! { |notification| notification[:created_at] }
+    notification_list.sort_by! { |notification| notification[:created_at] }.reverse!
 
     render json: {
       current_user: current_user,

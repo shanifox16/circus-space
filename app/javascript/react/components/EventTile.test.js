@@ -14,13 +14,17 @@ describe("EventTile", () => {
       <BrowserRouter>
         <EventTile
           name="Silks 5"
-          eventTime="10/19"
+          eventTime="5:00pm"
         />
       </BrowserRouter>
     )
   })
 
-  it("renders the calendar information", () => {
-    expect(wrapper.find("p").text()).toBe("Silks 5 at 10/19")
+  it("renders the time information", () => {
+    expect(wrapper.find("#event-time").text()).toBe("5:00pm")
+  })
+
+  it("renders the name information", () => {
+    expect(wrapper.find("#event-name").text()).toBe("Silks 5")
   })
 })

@@ -7,9 +7,19 @@ import ActivityEventTile from './ActivityEventTile'
 
 const ActivityContainer = props => {
   let eventDate
-  let today = new Date()
+  let ampm = "pm"
 
   const notificationData = props.notifications.map(notification => {
+    eventDate = new Date(notification.created_at)
+    if (eventDate.getHours() === 24) {
+      ampm = "am"
+    } else if (eventDate.getHours() <= 12) {
+      ampm = "am"
+    } else {
+      ampm = "pm"
+    }
+    eventDate = `${eventDate.getMonth()+1}/${eventDate.getDate()} at ${(eventDate.getHours() + 24) % 12 || 12}:${('0'+eventDate.getMinutes()).slice(-2)}${ampm}`
+
     if (notification.summary){
       if (props.currentUser.role === "instructor") {
         return(
@@ -17,7 +27,7 @@ const ActivityContainer = props => {
             key={notification.id}
             id={notification.id}
             summary={notification.summary}
-            date={notification.created_at}
+            date={eventDate}
           />
         )
       }
@@ -30,7 +40,7 @@ const ActivityContainer = props => {
             email={notification.email}
             fname={notification.fname}
             lname={notification.lname}
-            date={notification.created_at}
+            date={eventDate}
           />
         )
       }
@@ -41,7 +51,7 @@ const ActivityContainer = props => {
             id={notification.id}
             currentUser={props.currentUser}
             title={notification.title}
-            date={notification.created_at}
+            date={eventDate}
           />
         )
     } else if (notification.video) {
@@ -50,7 +60,10 @@ const ActivityContainer = props => {
           key={notification.id}
           id={notification.id}
           video={notification.video}
-          date={notification.created_at}
+          date={eventDate}
+          userId={notification.user_id}
+          currentUser={props.currentUser}
+          users={props.users}
         />
       )
     } else {
@@ -59,10 +72,11 @@ const ActivityContainer = props => {
           key={notification.id}
           id={notification.id}
           body={notification.body}
+          classSummary={notification.class_summary_id}
           currentUser={props.currentUser}
           users={props.users}
           userId={notification.user_id}
-          date={notification.created_at}
+          date={eventDate}
         />
       )
     }

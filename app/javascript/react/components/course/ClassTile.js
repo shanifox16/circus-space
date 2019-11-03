@@ -21,17 +21,15 @@ const ClassTile = props => {
     return <Redirect to={`/class_summaries/${props.summaryId}`} />
   } else {
     return(
-      <div className="class-tile cell small-12 medium-6 large-4 grid-x grid-margin-x">
-          <h4 className="title cell small-1">{title}</h4>
-          <div className="date-and-thumbnail cell small-1">
-            <p id="class-date" className="text-right">{date}</p>
-            <SummaryTile
-              classId={props.id}
-              summaryPosted={props.summaryPosted}
-              summaryVideo={props.summaryVideo}
-              redirectSummary={redirectSummary}
-              />
-          </div>
+      <div className="class-tile cell small-12 large-4">
+        <h4 className="title">{title}</h4>
+        <p id="class-date" className="date">{date}</p>
+        <SummaryTile
+          classId={props.id}
+          summaryPosted={props.summaryPosted}
+          summaryVideo={props.summaryVideo}
+          redirectSummary={redirectSummary}
+        />
       </div>
     )
   }

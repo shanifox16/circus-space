@@ -30,7 +30,7 @@ const CourseShowTile = props => {
       <h6 id="course-name">{props.course.name}</h6>
       <p id="course-description">{props.course.description}</p>
       <h6>Instructor</h6>
-      <p>{instructor}</p>
+      <p className="instructor">{instructor}</p>
       <h6>Students</h6>
       {studentData}
     </div>

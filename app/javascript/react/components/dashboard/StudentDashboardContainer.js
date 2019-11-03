@@ -18,7 +18,7 @@ const StudentDashboardContainer = props => {
       </div>
       <div className="dashboard-squares grid-x grid-margin-x cell small-12 medium-6 large-8">
         <div className="cell top-row-squares grid-x">
-          <div className="event-container top-left-square cell small-12 large-6 text-center">
+          <div className="event-container top-middle-square cell small-12 large-6 text-center">
             <EventContainer
               student={true}
               events={props.events}
@@ -28,7 +28,7 @@ const StudentDashboardContainer = props => {
           </div>
         </div>
         <div className="cell bottom-row-squares grid-x">
-          <div className="bottom-left-square cell small-12 large-6">
+          <div className="bottom-middle-square cell small-12 large-6">
           </div>
           <div className="bottom-right-square subscribe-tile text-center cell small-12 large-6">
             <SubscribeTile
