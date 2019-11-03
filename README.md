@@ -1,11 +1,15 @@
+# Circus Space
+
 [![Codeship Status for shanifox16/circus-space](https://app.codeship.com/projects/acd6da70-d682-0137-38f5-2ee50a1757e6/status?branch=master)](https://app.codeship.com/projects/370596)
+
+## Description
 
 Welcome to Circus Space - a communication platform and video repository for circus instructors and students.
 
 Please visit the application here:
 [Circus Space](https://circusspace.herokuapp.com/)
 
-Circus Space relies on logging in as an instructor or student.
+Circus Space relies on logging in through Google as an instructor or student.
 To view the instructor workflow, please log in using Google with these credentials:
 ```
 email: circusspaceinstructor@gmail.com
@@ -13,29 +17,29 @@ password: circusspace
 ```
 To view the instructor workflow, please log in using Google with these credentials:
 ```
-email: circusspacestudent@gmail.com
+email: circusspacestudent3@gmail.com
 password: circusspace
 ```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies
 
-Things you may want to cover:
+* Ruby - 2.6.5
+* Rails - 5.2.3
+* React - 16.8.0
+* CarrierWave - 2.0.2
+* Foundation-Rails - 6.5.3.0
 
-* Ruby version
+## To Run Locally
 
-* System dependencies
+* Download the Repo
+* 'yarn install' and 'bundle install' from your terminal
+* create the database: 'bundle exec rake db:create', 'bundle exec rake db:migrate'
+* You will need IDs and secrets for AWS, Google, and Mailchimp. Please review the .env.example file for all IDs that are needed
+* The seed data is up to date and ready to use, but assumes that 4 initial users have been set up through Google
+* 'yarn run start' and 'rails s'
+* Navigate your browser to localhost:3000
+* Run test suite with `yarn test` and `rspec`
 
-* Configuration
+## Author
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Shani Fox
