@@ -15,18 +15,22 @@ const InstructorDashboardContainer = props => {
       </div>
       <div className="dashboard-squares grid-x grid-margin-x cell small-12 medium-6 large-8">
         <div className="cell top-row-squares grid-x">
-          <div className="event-container top-left-square cell small-12 large-6 text-center">
+          <div className="top-left-square cell small-12 large-4">
+          </div>
+          <div className="event-container top-middle-square cell small-12 large-4 text-center">
             <EventContainer
               events={props.events}
               />
           </div>
-          <div className="top-right-square cell small-12 large-6">
+          <div className="top-right-square cell small-12 large-4">
           </div>
         </div>
         <div className="cell bottom-row-squares grid-x">
-          <div className="bottom-left-square cell small-12 large-6">
+          <div className="bottom-left-square cell small-12 large-4">
           </div>
-          <div className="buttons-container bottom-right-square cell small-12 large-6">
+          <div className="bottom-middle-square cell small-12 large-4">
+          </div>
+          <div className="buttons-container bottom-right-square cell small-12 large-4">
             <ButtonsContainer
               />
           </div>

@@ -18,7 +18,7 @@ class Api::V1::EventsController < ApiController
       time_max: (DateTime.now+7).rfc3339,
       single_events: true,
       order_by: "startTime",
-      time_min: DateTime.now.rfc3339
+      time_min: (DateTime.now-1).rfc3339
     )
     render json: events.items
   end

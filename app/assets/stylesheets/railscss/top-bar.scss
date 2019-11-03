@@ -1,14 +1,19 @@
 .top-bar {
+  .logo {
+    height: 90px;
+    width: auto;
+  }
+
   a {
     font-weight: bold;
   }
 }
 
 .top-bar-signed-in {
-  background-color: #49177E;
+  background-color: #3D086E;
 
   .right {
-    background-color: #49177E;
+    background-color: #3D086E;
     list-style-type: none;
   }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ActivityDateTile from './ActivityDateTile'
 
 const ActivityCommentTile = props => {
@@ -15,9 +16,7 @@ const ActivityCommentTile = props => {
     <div className="activity-tile grid-x grid-margin-x">
       <i className="fa fa-2x fa-comments cell-2"></i>
       <div className="cell-10 comment-text">
-        <div>
-          {commentUser} added a comment
-        </div>
+        <Link to={`/class_summaries/${props.classSummary}`}>{commentUser} added a comment</Link>
         <ActivityDateTile
           date={props.date}
           />

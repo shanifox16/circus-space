@@ -19,6 +19,11 @@
     padding-left: 20px;
   }
 
+  .video-text {
+    width: 315px;
+    padding-left: 20px;
+  }
+
   .event-text {
     width: 315px;
     padding-left: 20px;
@@ -38,5 +43,13 @@
 
   .fa-heartbeat {
     color: #D18AEA;
+  }
+
+  .fa-video-camera {
+    color: #479FD9;
+  }
+
+  a {
+    color: black;
   }
 }

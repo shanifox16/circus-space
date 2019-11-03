@@ -14,41 +14,50 @@
   }
 
   .top-left-square {
-    background-color: #C3CFEE;
-    margin-top: 2%;
-    margin-left: 18%;
-    margin-right: 15px;
-    margin-bottom: 0px;
-    width: 260px;
-    height: 260px;
-    border-top-left-radius: 20px;
+    background: image-url("/assets/beach-juggler-square.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
+  }
+
+  .top-middle-square {
+    background-color: #FDFDFC;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
   }
 
   .top-right-square {
     background: image-url("/assets/dancer-picture.jpg");
     background-size: contain;
-    margin-top: 2%;
-    margin-right: 5%;
-    width: 260px;
-    height: 260px;
-    border-top-right-radius: 20px;
+    background-repeat: no-repeat;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
   }
 
   .bottom-left-square {
+    background-color: #C3CFEE;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
+  }
+
+  .bottom-middle-square {
     background: image-url("/assets/rings-picture.jpg");
     background-size: contain;
-    margin-right: 15px;
-    margin-left: 18%;
-    width: 260px;
-    height: 260px;
-    border-bottom-left-radius: 20px;
+    background-repeat: no-repeat;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
   }
 
   .bottom-right-square {
     background-color: #C3CFEE;
-    margin-right: 5%;
-    width: 260px;
-    height: 260px;
-    border-bottom-right-radius: 20px;
+    width: 270px;
+    height: 270px;
+    margin-left: 5px;
   }
 }

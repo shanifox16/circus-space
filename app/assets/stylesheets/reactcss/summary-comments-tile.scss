@@ -1,6 +1,9 @@
 .summary-comments-tile {
   background-color: #C3CFEE;
   height: 100vh;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-left-color: #868388;
 
   .comment-header {
     font-weight: bold;
@@ -20,6 +23,9 @@
       margin-right: 50px;
       border-radius: 20px;
       border-top-left-radius: 0px;
+      border-style: solid;
+      border-width: thin;
+      border-color: #868388;
     }
   }
 
@@ -30,6 +36,9 @@
       margin-right: 50px;
       border-radius: 20px;
       border-top-left-radius: 0px;
+      border-style: solid;
+      border-width: thin;
+      border-color: #868388;
     }
   }
 
@@ -41,6 +50,9 @@
       margin-left: 50px;
       border-radius: 20px;
       border-top-right-radius: 0px;
+      border-style: solid;
+      border-width: thin;
+      border-color: #868388;
     }
   }
 }

@@ -1,34 +1,25 @@
 .class-tile {
   background-color: #C3CFEE;
   margin-bottom: 25px;
-  width: 100%;
-  height: 250px;
   border-radius: 20px;
+  margin-top: 2%;
+  min-height: 200px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #868388;
 
   .title {
-    transform: rotate(-90deg);
-    height: 30px;
-    width: 100%;
-    margin-left: -80px;
-    margin-top: 100px;
-    margin-bottom: -100px;
-  }
-
-  .date-and-thumbnail {
-    margin-left: 118px;
-    width: 95px;
-    margin-top: -25px;
-  }
-
-  p {
     margin-bottom: 0;
   }
 
+  p {
+    margin: 0;
+  }
+
   .video-thumbnail {
-    height: 220px;
-    max-width: 250px;
-    border-radius: 20px 0 20px 0;
+    height: 400px;
     cursor: pointer;
+    margin-bottom: 5px;
   }
 
   .summary-text {
