@@ -8,14 +8,15 @@ class Api::V1::EventsController < ApiController
       access_token: current_user.access_token,
       client_id: ENV["GOOGLE_CLIENT_ID"],
       client_secret: ENV["GOOGLE_CLIENT_SECRET"],
-      refresh_token: current_user.refresh_token,
+      refresh_token: current_user.refresh_token
       # grant_type: "authorization_code"
     )
+    auth.expires_in = 1.week.from_now
     # auth.fetch_access_token!
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
     calendar.authorization.refresh!
-    
+
     events = calendar.list_events("primary",
       time_max: (DateTime.now+7).rfc3339,
       single_events: true,

@@ -16,14 +16,14 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     data = auth.info
-    user1 = User.where(email: data.email).first_or_create do |user|
-      user.fname = data.first_name
-      user.lname = data.last_name
-      user.email = data.email
-      user.password = Devise.friendly_token[0, 20]
-      user.access_token = auth.credentials.token
-      user.refresh_token = auth.credentials.refresh_token
-    end
-    user1
+    user = User.find_or_initialize_by(email: data.email)
+    user.fname = data.first_name
+    user.lname = data.last_name
+    user.email = data.email
+    user.password = Devise.friendly_token[0, 20]
+    user.access_token = auth.credentials.token
+    user.refresh_token = auth.credentials.refresh_token
+    user.save!
+    user
   end
 end
