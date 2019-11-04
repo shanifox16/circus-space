@@ -27,6 +27,7 @@ const VideoIndexContainer = props => {
       <VideoIndexTile
         key={video.id}
         video={video}
+        currentUser={false}
       />
     )
   })

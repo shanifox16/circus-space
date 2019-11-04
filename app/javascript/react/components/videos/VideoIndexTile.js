@@ -4,7 +4,17 @@ import { Redirect } from 'react-router-dom'
 const VideoIndexTile = props => {
   const [clickedStatus, setClickedStatus] = useState(false)
 
-  let certifiedIcon = <i id="certified-icon" className="fa fa-times"></i>
+  const deleteVideo = event => {
+    event.preventDefault()
+    props.submitDeleteVideo(props.video.id)
+  }
+
+  let deleteButton
+  if (props.currentUser) {
+    deleteButton = <i className="fa fa-times delete-icon" onClick={deleteVideo}></i>
+  }
+
+  let certifiedIcon = <i id="certified-icon" className="fa fa-times fa-times-red"></i>
   if (props.video.certified) {
     certifiedIcon = <i id="certified-icon" className="fa fa-check"></i>
   }
@@ -19,11 +29,14 @@ const VideoIndexTile = props => {
   } else {
     return(
       <div className="video-index-tile">
-        <h5 id="title">{props.video.title}</h5>
-        <h5 id="course-name">{props.video.course.name}</h5>
-        <p className="video-certified">Instructor Certified? {certifiedIcon}</p>
-        <video src={`${props.video.video.url}`} className="video-tile" id="video-tile" onClick={handleClick}>
-        </video>
+        {deleteButton}
+        <div className="text-center">
+          <h5 id="title" className={`title-${props.currentUser}`}>{props.video.title}</h5>
+          <h5 id="course-name">{props.video.course.name}</h5>
+          <p className="video-certified">Instructor Certified? {certifiedIcon}</p>
+          <video src={`${props.video.video.url}`} className="video-tile" id="video-tile" onClick={handleClick}>
+          </video>
+        </div>
       </div>
     )
   }
