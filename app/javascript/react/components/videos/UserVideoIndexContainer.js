@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import VideoIndexTile from './VideoIndexTile'
 
-const VideoIndexContainer = props => {
+const UserVideoIndexContainer = props => {
+  let userId = props.match.params.id
   const [personalVideos, setPersonalVideos] = useState([])
 
   useEffect(() => {
-    fetch(`/api/v1/personal_videos`)
+    fetch(`/api/v1/users/${userId}/personal_videos`)
     .then(response => {
       if (response.ok) {
         return response;
@@ -32,9 +33,9 @@ const VideoIndexContainer = props => {
   })
 
   return(
-    <div className="video-index-container text-center">
+    <div className="user-video-index-container text-center">
       <div className="spacer">
-        <h5>Public Videos</h5>
+        <h5>Personal Video Repository</h5>
       </div>
       <div className="grid-x">
         {videoData}
@@ -43,4 +44,4 @@ const VideoIndexContainer = props => {
   )
 }
 
-export default VideoIndexContainer
+export default UserVideoIndexContainer

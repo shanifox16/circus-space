@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/personal_videos', to: 'homes#index'
   get '/personal_videos/new', to: 'homes#index'
   get '/personal_videos/:id', to: 'homes#index'
+  get '/users/:id/personal_videos', to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
       end
       resources :class_summaries, only: [:show] do
         resources :summary_comments, only: [:index, :create]
+      end
+      resources :users, only: [:show] do
+        member do
+          get :personal_videos
+        end
       end
       resources :personal_videos, only: [:index, :show, :new, :create]
       resources :notifications, only: [:index]
