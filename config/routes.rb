@@ -27,7 +27,7 @@ Rails.application.routes.draw do
           get :personal_videos
         end
       end
-      resources :personal_videos, only: [:index, :show, :new, :create]
+      resources :personal_videos, only: [:index, :show, :new, :create, :update]
       resources :notifications, only: [:index]
       resources :events, only: [:index]
       resources :subscribers, only: [:index, :create]
