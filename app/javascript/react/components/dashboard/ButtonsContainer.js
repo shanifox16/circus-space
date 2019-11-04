@@ -5,7 +5,7 @@ const ButtonsContainer = props => {
   return(
     <div className="buttons-container">
       <div className="grid-x grid-margin-x">
-        <Link className="button button-top cell small-8 small-offset-2" to="/">Courses</Link><br />
+        <Link className="button button-top cell small-8 small-offset-2" to="/courses">Courses</Link><br />
       </div>
       <div className="grid-x grid-margin-x">
         <Link className="button cell small-8 small-offset-2" to="/">Newsletter</Link>
