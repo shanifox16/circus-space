@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show] do
         member do
           get :personal_videos
+          post :delete_personal_video
         end
       end
       resources :personal_videos, only: [:index, :show, :new, :create, :update]
