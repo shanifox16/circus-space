@@ -8,6 +8,7 @@ const VideoShowContainer = props => {
   const [videoUrl, setVideoUrl] = useState("")
   const [videoUser, setVideoUser] = useState({})
   const [videoCourse, setVideoCourse] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
     fetch(`/api/v1/personal_videos/${videoId}`)
@@ -26,6 +27,7 @@ const VideoShowContainer = props => {
       setVideoUrl(body.personal_video.video.url)
       setVideoUser(body.personal_video.user)
       setVideoCourse(body.personal_video.course)
+      setCurrentUser(body.personal_video.current_user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
@@ -38,6 +40,7 @@ const VideoShowContainer = props => {
         videoUrl={videoUrl}
         videoUser={videoUser}
         videoCourse={videoCourse}
+        currentUser={currentUser}
       />
     </div>
   )

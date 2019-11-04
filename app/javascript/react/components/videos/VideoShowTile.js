@@ -1,14 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const VideoShowTile = props => {
+  const [certifyStatus, setCertifyStatus] = useState(props.personalVideo.certified)
+
+  let instructorData
+
+  const handleCheck = event => {
+    event.preventDefault()
+    fetch(`/api/v1/personal_videos/${props.personalVideo.id}`, {
+      credentials: "same-origin",
+      method: 'PATCH',
+      body: JSON.stringify(true),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      if (body.personal_video) {
+        setCertifyStatus(body.personal_video.certified)
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  const handleX = event => {
+    event.preventDefault()
+    fetch(`/api/v1/personal_videos/${props.personalVideo.id}`, {
+      credentials: "same-origin",
+      method: 'PATCH',
+      body: JSON.stringify(false),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      if (body.personal_video) {
+        setCertifyStatus(body.personal_video.certified)
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   let publicIcon = <i id="public-icon" className="fa fa-times"></i>
-  let certifiedIcon = <i id="certified-icon" className="fa fa-times"></i>
+  let certifiedIcon
   if (props.personalVideo.public) {
     publicIcon = <i id="public-icon" className="fa fa-check"></i>
   }
-  if (props.personalVideo.certified) {
+  if (certifyStatus) {
     certifiedIcon = <i id="certified-icon" className="fa fa-check"></i>
+  } else if (certifyStatus === false) {
+    certifiedIcon = <i id="certified-icon" className="fa fa-times"></i>
+  } else {
+    if (props.personalVideo.certified) {
+      certifiedIcon = <i id="certified-icon" className="fa fa-check"></i>
+    } else {
+      certifiedIcon = <i id="certified-icon" className="fa fa-times"></i>
+    }
   }
+  if (props.currentUser.role === "instructor") {
+    instructorData = <p className="instructor-certify">
+      Safe to train?
+      <i className="fa fa-2x fa-check" onClick={handleCheck}></i>
+      <i className="fa fa-2x fa-times" onClick={handleX}></i>
+    </p>
+  }
+
 
   return(
     <div className="video-show-tile">
@@ -33,6 +111,7 @@ const VideoShowTile = props => {
           <div className="booleans">
             <p className="video-public">Public? {publicIcon}</p>
             <p className="video-certified">Certified by instructor? {certifiedIcon}</p>
+            {instructorData}
           </div>
         </div>
       </div>

@@ -33,4 +33,24 @@
   .fa-times {
     color: #E54040;
   }
+
+  .instructor-certify {
+    background-color: #E691B9;
+    border-style: solid;
+    border-width: thin;
+    border-color: #868388;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+
+    .fa-check {
+      padding-left: 30px;
+    }
+
+    .fa-times {
+      padding-left: 30px;
+    }
+  }
 }
