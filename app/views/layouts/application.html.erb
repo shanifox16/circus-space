@@ -9,23 +9,17 @@
 <body>
 
   <% if current_user %>
-    <nav class="top-bar top-bar-signed-in">
+    <nav class="top-bar top-bar-signed-in left">
       <a href="/"><img class="logo" src="/assets/logo.jpg"></img></a>
 
-      <%= form_for "/personal_videos", method: "GET" do |f| %>
-        <div class="row">
-          <div class="columns large-6 medium-12 small-12">
-            <%= f.text_field :title %>
-          </div>
-          <div class="columns large-6 medium-12 small-12">
-            <%= f.submit "Search", :class => 'search-button' %>
-          </div>
-        </div>
-      <% end %>
 
       <section class="top-bar-section">
-        <ul class="right">
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <ul class="right top-bar-right menu grid-x grid-margin-x">
+          <%= form_for "/personal_videos", url: "/personal_videos", method: "GET" do |f| %>
+            <li><%= f.text_field :title, class: "search-field cell small-4", placeholder: "Search for public videos" %></li>
+            <li><%= f.submit "Search", class: "search-button cell small-4" %></li>
+          <% end %>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "cell small-4" %></li>
         </ul>
       </section>
     </nav>

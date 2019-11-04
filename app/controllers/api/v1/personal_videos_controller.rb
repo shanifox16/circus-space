@@ -58,8 +58,8 @@ class Api::V1::PersonalVideosController < ApiController
   end
 
   def search_results
-    PersonalVideo.where(
-      title: params["/personal_videos"][:title]
+    search_term = params["/personal_videos"][:title]
+    PersonalVideo.where("lower(title) LIKE lower(?)", "%#{search_term}%").or(PersonalVideo.where("lower(body) LIKE lower(?)", "%#{search_term}%")
     )
   end
 end
