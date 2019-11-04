@@ -1,6 +1,22 @@
 class Api::V1::PersonalVideosController < ApiController
   def index
-    render json: PersonalVideo.where(public: true), each_serializer: PersonalVideoSerializer, scope: {current_user: current_user}
+    no_result = ""
+
+    if params["/personal_videos"]
+      if params["/personal_videos"][:title] == ""
+        videos = PersonalVideo.where(public: true)
+      else
+        if search_results.length == 0
+          no_result = "No Results"
+          videos = search_results
+        else
+          videos = search_results
+        end
+      end
+    else
+      videos = PersonalVideo.where(public: true)
+    end
+    render json: videos, each_serializer: PersonalVideoSerializer, scope: {current_user: current_user}
   end
 
   def show
@@ -39,5 +55,11 @@ class Api::V1::PersonalVideosController < ApiController
     if video.save
       render json: video
     end
+  end
+
+  def search_results
+    search_term = params["/personal_videos"][:title]
+    PersonalVideo.where("lower(title) LIKE lower(?)", "%#{search_term}%").or(PersonalVideo.where("lower(body) LIKE lower(?)", "%#{search_term}%")
+    )
   end
 end

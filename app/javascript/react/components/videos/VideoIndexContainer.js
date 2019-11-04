@@ -5,7 +5,11 @@ const VideoIndexContainer = props => {
   const [personalVideos, setPersonalVideos] = useState([])
 
   useEffect(() => {
-    fetch(`/api/v1/personal_videos`)
+    let search = ""
+    if (props.location.search) {
+      search = props.location.search
+    }
+    fetch(`/api/v1/personal_videos${search}.json`)
     .then(response => {
       if (response.ok) {
         return response;
