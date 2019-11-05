@@ -299,7 +299,7 @@ Devise.setup do |config|  config.secret_key = Rails.application.secret_key_base
   # config.sign_in_after_change_password = true
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {
     access_type: "offline",
-    select_account: true,
+    prompt: "consent",
     scope: "calendar.events,userinfo.email,userinfo.profile"
   }
 end
