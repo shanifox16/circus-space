@@ -1,16 +1,14 @@
-require_relative '../spec/support/factory_bot.rb'
-
 instructor = User.first
 student1 = User.second
 student2 = User.third
 student3 = User.fourth
-student4 = FactoryBot.create(:user, fname: "Marjie", lname: "Lam")
-student5 = FactoryBot.create(:user, fname: "Ellie", lname: "Redding")
-student6 = FactoryBot.create(:user, fname: "Jason", lname: "Langsner")
-student7 = FactoryBot.create(:user, fname: "Ryan", lname: "Particka")
-student8 = FactoryBot.create(:user, fname: "Jon", lname: "Loewy")
-student9 = FactoryBot.create(:user, fname: "Carly", lname: "Fox")
-student10 = FactoryBot.create(:user, fname: "Elana", lname: "Fox")
+student4 = User.create!(email: "user1@example.com", fname: "Marjie", lname: "Lam", role: "student", password: "abc123")
+student5 = User.create!(email: "user2@example.com", fname: "Ellie", lname: "Redding", role: "student", password: "abc123")
+student6 = User.create!(email: "user3@example.com", fname: "Jason", lname: "Langsner", role: "student", password: "abc123")
+student7 = User.create!(email: "user4@example.com", fname: "Ryan", lname: "Particka", role: "student", password: "abc123")
+student8 = User.create!(email: "user5@example.com", fname: "Jon", lname: "Loewy", role: "student", password: "abc123")
+student9 = User.create!(email: "user6@example.com", fname: "Carly", lname: "Fox", role: "student", password: "abc123")
+student10 = User.create!(email: "user7@example.com", fname: "Elana", lname: "Fox", role: "student", password: "abc123")
 
 course1 = Course.create!(name: "Aerial Silks Level 1", description: "This is a beginner aerial silks course. No prior knowledge required")
 course2 = Course.create!(name: "Aerial Silks Level 2", description: "This is an intermediate aerial silks course. Students must have completed a full session of Level 1.")

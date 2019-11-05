@@ -5,14 +5,17 @@ const CourseShowTile = props => {
   let summaryText
 
   const individualClasses = props.course.individual_classes.map(indiv_class => {
-    if (indiv_class.class_summary != null) {
-      summaryText = " - Summary posted"
-    } else {
-      summaryText = ""
-    }
+    let date = indiv_class.date.split("-")
+    date = `${date[1]} / ${date[2]}`
+
+    // if (indiv_class.class_summary != null) {
+    //   summaryText = " - Summary posted"
+    // } else {
+    //   summaryText = ""
+    // }
     return(
-      <div>
-        <p>{indiv_class.date}{summaryText}</p>
+      <div className="cell small-4">
+        <p>{date}</p>
       </div>
     )
   })
@@ -20,19 +23,22 @@ const CourseShowTile = props => {
   const students = props.course.users.map(user => {
     if (user.role === "student") {
       return(
-        <div>
-          <p>{user.fname} {user.lname}</p>
+        <div className="student grid-x align-center">
+          <i className="fa fa-child"></i>
+          <p className="name">{user.fname} {user.lname}</p>
         </div>
       )
     }
   })
 
   return (
-    <div className="course-index-tile cell small-12 medium-6 large-4">
+    <div className="course-index-tile cell small-12 medium-4 large-3 text-center">
       <h5><Link to={`/courses/${props.course.id}`}>{props.course.name}</Link></h5>
-      <p>Dates:</p>
-      {individualClasses}
-      <p>Students:</p>
+      <h5 className="header">Dates:</h5>
+      <div className="grid-x">
+        {individualClasses}
+      </div>
+      <h5 className="header">Students:</h5>
       {students}
     </div>
   )
