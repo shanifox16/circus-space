@@ -10,17 +10,43 @@
 
   <% if current_user %>
     <nav class="top-bar top-bar-signed-in left">
-      <a href="/"><img class="logo" src="/assets/logo.jpg"></img></a>
-
-
       <section class="top-bar-section">
-        <ul class="right top-bar-right menu grid-x grid-margin-x">
-          <%= form_for "/personal_videos", url: "/personal_videos", method: "GET" do |f| %>
-            <li><%= f.text_field :title, class: "search-field cell small-4", placeholder: "Search for public videos" %></li>
-            <li><%= f.submit "Search", class: "search-button cell small-4" %></li>
-          <% end %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "cell small-4" %></li>
+        <a href="/"><img class="logo" src="/assets/logo.jpg"></img></a>
+      </section>
+
+
+      <section class="top-bar-section grid-x grid-margin-x">
+        <ul class="right top-bar-right">
+          <div class="search-bar">
+            <%= form_for "/personal_videos", url: "/personal_videos", method: "GET" do |f| %>
+              <li><%= f.text_field :title, class: "search-field cell small-4", placeholder: "Search for public videos" %></li>
+              <li><%= f.submit "Search", class: "search-button cell small-4" %></li>
+            <% end %>
+          </div>
         </ul>
+        <div class="top-bar">
+          <div class="top-bar-right">
+            <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+              <li>
+                <a href="#" class="fa fa-2x fa-bars"></a>
+                <ul class="menu vertical nested">
+                  <li>
+                    <a href="/courses">Courses</a>
+                  </li>
+                  <li>
+                    <a href="#">Videos</a>
+                    <ul class="menu vertical nested">
+                      <li><a href="/personal_videos">Public Videos</a></li>
+                      <li><a href="/personal_videos/new">Post Video</a></li>
+                      <li><a href="/users/<%= current_user.id %>/personal_videos">My Videos</a></li>
+                    </ul>
+                  </li>
+                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </nav>
   <% else %>

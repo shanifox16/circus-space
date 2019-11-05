@@ -1,6 +1,6 @@
 class Api::V1::CoursesController < ApiController
   def index
-    render json: Course.all
+    render json: Course.all, each_serializer: CourseSerializer, scope: {current_user: current_user}
   end
 
   def show
