@@ -2,7 +2,7 @@ import React from 'react'
 import ActivityContainer from "./ActivityContainer"
 import EventContainer from "./EventContainer"
 import ButtonsContainer from "./ButtonsContainer"
-import VideoButtonsContainer from "./VideoButtonsContainer"
+import GoogleChartsContainer from "./GoogleChartsContainer"
 
 const InstructorDashboardContainer = props => {
   return(
@@ -28,8 +28,8 @@ const InstructorDashboardContainer = props => {
         </div>
         <div className="cell bottom-row-squares grid-x">
           <div className="bottom-left-square video-buttons-container cell small-12 large-4">
-            <VideoButtonsContainer
-              currentUser={props.currentUser}
+            <GoogleChartsContainer
+              activityData={props.activityData}
             />
           </div>
           <div className="bottom-middle-square cell small-12 large-4">
