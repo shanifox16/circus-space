@@ -3,6 +3,7 @@ import CourseIndexTile from './CourseIndexTile'
 
 const CourseIndexContainer = props => {
   const [courses, setCourses] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
     fetch(`/api/v1/courses`)
@@ -18,6 +19,7 @@ const CourseIndexContainer = props => {
     .then(response => response.json())
     .then(body => {
       setCourses(body.courses)
+      setCurrentUser(body.courses[0].current_user)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])

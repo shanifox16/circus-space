@@ -36,7 +36,8 @@ const InstructorDashboardContainer = props => {
           </div>
           <div className="buttons-container bottom-right-square cell small-12 large-4">
             <ButtonsContainer
-              />
+              currentUser={props.currentUser}
+            />
           </div>
         </div>
       </div>
