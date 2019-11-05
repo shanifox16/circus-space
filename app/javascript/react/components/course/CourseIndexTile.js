@@ -7,12 +7,6 @@ const CourseShowTile = props => {
   const individualClasses = props.course.individual_classes.map(indiv_class => {
     let date = indiv_class.date.split("-")
     date = `${date[1]} / ${date[2]}`
-
-    // if (indiv_class.class_summary != null) {
-    //   summaryText = " - Summary posted"
-    // } else {
-    //   summaryText = ""
-    // }
     return(
       <div className="cell small-4">
         <p>{date}</p>

@@ -25,20 +25,11 @@ const CourseIndexContainer = props => {
   }, [])
 
   const courseData = courses.map(course => {
-    course.users.forEach(user => {
-      let userInClass = false
-      if (user.id === currentUser.id) {
-        userInClass = true
-      }
-      if (userInClass) {
-
-        return(
-          <CourseIndexTile
-            course={course}
-            />
-        )
-      }
-    })
+    return(
+      <CourseIndexTile
+        course={course}
+      />
+    )
   })
 
   return(

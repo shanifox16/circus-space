@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many :video_comments
 
   def self.from_omniauth(auth)
-    binding.pry
     data = auth.info
     user = User.find_or_initialize_by(email: data.email)
     user.fname = data.first_name
