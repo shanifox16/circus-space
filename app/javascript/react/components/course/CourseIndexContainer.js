@@ -31,7 +31,8 @@ const CourseIndexContainer = props => {
   })
 
   return(
-    <div className="course-index grid-x grid-margin-x">
+    <div className="course-index-container grid-x grid-margin-x">
+      <div className="spacer"></div>
       {courseData}
     </div>
   )
