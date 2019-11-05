@@ -55,32 +55,54 @@ class Api::V1::NotificationsController < ApiController
       end
     end
 
+    activity_data = []
+    summaryCount = 0
+    commentCount = 0
+    eventCount = 0
+    videoCount = 0
+    subscriberCount = 0
+
     recentSummaries.each do |summary|
       notification_list << summary
+      summaryCount += 1
     end
 
     recentComments.each do |comment|
       notification_list << comment
+      commentCount += 1
     end
 
     events.items.each do |event|
       notification_list << event_info(event)
+      eventCount += 1
     end
 
     recentVideos.each do |video|
       notification_list << video
+      videoCount += 1
     end
 
     recentSubscribers.each do |subscriber|
       notification_list << member_info(subscriber)
+      subscriberCount += 1
     end
+
+    activity_data = [
+      ["Activity", "Posts"],
+      ["Summaries", summaryCount],
+      ["Comments", commentCount],
+      ["Events", eventCount],
+      ["Videos", videoCount],
+      ["Subscribers", subscriberCount]
+    ]
 
     notification_list.sort_by! { |notification| notification[:created_at] }.reverse!
 
     render json: {
       current_user: current_user,
       users: User.all,
-      notifications: notification_list
+      notifications: notification_list,
+      activity_data: activity_data
     }
   end
 

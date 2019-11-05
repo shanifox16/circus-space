@@ -8,6 +8,7 @@ const DashboardContainer = props => {
   const [notifications, setNotifications] = useState([])
   const [events, setEvents] = useState([])
   const [subscribers, setSubscribers] = useState([])
+  const [activityData, setActivityData] = useState([])
 
   useEffect(() => {
     fetch('/api/v1/notifications')
@@ -25,6 +26,7 @@ const DashboardContainer = props => {
       setCurrentUser(body.current_user)
       setUsers(body.users)
       setNotifications(body.notifications)
+      setActivityData(body.activity_data)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 
@@ -95,6 +97,7 @@ const DashboardContainer = props => {
           users={users}
           notifications={notifications}
           events={events}
+          activityData={activityData}
         />
       </div>
     )
