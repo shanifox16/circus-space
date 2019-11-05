@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/personal_videos/new', to: 'homes#index'
   get '/personal_videos/:id', to: 'homes#index'
   get '/users/:id/personal_videos', to: 'homes#index'
+  get '/events/new', to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
       end
       resources :personal_videos, only: [:index, :show, :new, :create, :update]
       resources :notifications, only: [:index]
-      resources :events, only: [:index]
+      resources :events, only: [:index, :create]
       resources :subscribers, only: [:index, :create]
     end
   end

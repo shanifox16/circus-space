@@ -10,6 +10,7 @@ import VideoIndexContainer from './videos/VideoIndexContainer'
 import VideoShowContainer from './videos/VideoShowContainer'
 import VideoForm from './videos/VideoForm'
 import UserVideoIndexContainer from './videos/UserVideoIndexContainer'
+import CreateEventContainer from './event/CreateEventContainer'
 
 export const App = props => {
   return (
@@ -26,6 +27,7 @@ export const App = props => {
           <Route exact path="/personal_videos/new" component={VideoForm} />
           <Route exact path="/personal_videos/:id" component={VideoShowContainer} />
           <Route exact path="/users/:id/personal_videos" component={UserVideoIndexContainer} />
+          <Route exact path="/events/new" component={CreateEventContainer} />
         </Switch>
       </BrowserRouter>
     </div>
