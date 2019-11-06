@@ -24,7 +24,7 @@ const ActivityContainer = props => {
       if (props.currentUser.role === "instructor") {
         return(
           <ActivityEventTile
-            key={notification.id}
+            key={`event${notification.id}`}
             id={notification.id}
             summary={notification.summary}
             date={eventDate}
@@ -35,7 +35,7 @@ const ActivityContainer = props => {
       if (props.currentUser.role === "instructor") {
         return(
           <ActivitySubscriberTile
-            key={notification.id}
+            key={`subscriber${notification.id}`}
             id={notification.id}
             email={notification.email}
             fname={notification.fname}
@@ -47,7 +47,7 @@ const ActivityContainer = props => {
     } else if (notification.homework) {
         return(
           <ActivitySummaryTile
-            key={notification.id}
+            key={`summary${notification.id}`}
             id={notification.id}
             currentUser={props.currentUser}
             title={notification.title}
@@ -57,7 +57,7 @@ const ActivityContainer = props => {
     } else if (notification.video) {
       return(
         <ActivityVideoTile
-          key={notification.id}
+          key={`video${notification.id}`}
           id={notification.id}
           video={notification.video}
           date={eventDate}
@@ -69,7 +69,7 @@ const ActivityContainer = props => {
     } else {
       return(
         <ActivityCommentTile
-          key={notification.id}
+          key={`comment${notification.id}`}
           id={notification.id}
           body={notification.body}
           classSummary={notification.class_summary_id}
