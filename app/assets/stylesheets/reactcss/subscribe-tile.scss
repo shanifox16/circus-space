@@ -17,6 +17,10 @@
     padding: 12px;
   }
 
+  .subscribe-button:focus {
+    outline: 0;
+  }
+
   .subscribe-button:hover {
     cursor: pointer;
   }

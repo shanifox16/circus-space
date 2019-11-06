@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'homes#index'
   get '/courses', to: 'homes#index'
   get '/courses/:id', to: 'homes#index'
-  get '/individual_classes/:id/class_summaries/new', to: 'homes#index'
+  get '/individual_classes/:id/class_summaries/new', to: 'homes#create'
   get '/class_summaries/:id', to: 'homes#index'
   get '/personal_videos', to: 'homes#index'
   get '/personal_videos/new', to: 'homes#index'
   get '/personal_videos/:id', to: 'homes#index'
   get '/users/:id/personal_videos', to: 'homes#index'
-  get '/events/new', to: 'homes#index'
+  get '/events/new', to: 'homes#create'
 
   namespace :api do
     namespace :v1 do

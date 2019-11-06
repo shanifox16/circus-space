@@ -65,6 +65,10 @@
     border-radius: 10px;
   }
 
+  .search-button:focus {
+    outline: 0;
+  }
+
   a {
     color: #000000;
   }
