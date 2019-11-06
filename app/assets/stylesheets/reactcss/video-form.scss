@@ -39,5 +39,8 @@
       border-radius: 10px;
       margin-top: 10px;
     }
+    .submit-button:focus {
+      outline: 0;
+    }
   }
 }
