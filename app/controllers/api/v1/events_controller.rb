@@ -15,7 +15,7 @@ class Api::V1::EventsController < ApiController
     calendar.authorization.refresh!
 
     events = calendar.list_events("primary",
-      time_max: (DateTime.now+7).rfc3339,
+      time_max: (DateTime.now+14).rfc3339,
       single_events: true,
       order_by: "startTime",
       time_min: (DateTime.now-1).rfc3339
@@ -52,7 +52,7 @@ class Api::V1::EventsController < ApiController
       'attendees': [{'email': params[:attendee]}]
     })
     calendar.insert_event('primary', new_event)
-    
+
     render json: new_event
   end
 end

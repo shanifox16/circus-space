@@ -1,13 +1,10 @@
 import React from 'react'
 import ActivityContainer from "./ActivityContainer"
-import EventContainer from "./EventContainer"
+import StudentEventContainer from "./StudentEventContainer"
 import SubscribeTile from "./SubscribeTile"
 import VideoButtonsContainer from "./VideoButtonsContainer"
 
 const StudentDashboardContainer = props => {
-  const addSubscriber = subscriberData => {
-    props.addSubscriber(subscriberData)
-  }
   return(
     <div className="dashboard-container grid-x grid-margin-x">
       <div className="activity-container cell small-12 medium-6 large-4">
@@ -22,7 +19,7 @@ const StudentDashboardContainer = props => {
           <div className="top-left-square cell small-12 large-4">
           </div>
           <div className="event-container top-middle-square cell small-12 large-4 text-center">
-            <EventContainer
+            <StudentEventContainer
               student={true}
               events={props.events}
             />
@@ -42,7 +39,6 @@ const StudentDashboardContainer = props => {
             <SubscribeTile
               currentUser={props.currentUser}
               subscribers={props.subscribers}
-              addSubscriber={addSubscriber}
             />
           </div>
         </div>

@@ -10,6 +10,7 @@ const SubscribeTile = props => {
     lname: "",
     email: ""
   })
+  const [newSubscribers, setNewSubscribers] = useState([])
 
   let status = "Not Subscribed"
   let mailchimpId
@@ -48,7 +49,36 @@ const SubscribeTile = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.addSubscriber(subscriberData)
+    fetch('/api/v1/subscribers', {
+      credentials: "same-origin",
+      method: 'POST',
+      body: JSON.stringify(subscriberData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+         error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      setNewSubscribers([body])
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  let subscriberList
+  if (newSubscribers[0]) {
+    subscriberList = newSubscribers
+  } else {
+    subscriberList = props.subscribers
   }
 
   let button =
@@ -56,7 +86,7 @@ const SubscribeTile = props => {
       <input className="subscribe-button" type="submit" value="Subscribe" onClick={setSubscribeState} />
     </form>
 
-  props.subscribers.forEach(subscriber => {
+  subscriberList.forEach(subscriber => {
     if (subscriber.email_address === props.currentUser.email) {
       if (subscriber.status === "subscribed") {
         status = _.capitalize(subscriber.status)

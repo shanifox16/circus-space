@@ -63,32 +63,6 @@ const DashboardContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  const addSubscriber = subscriberData => {
-    fetch('/api/v1/subscribers', {
-      credentials: "same-origin",
-      method: 'POST',
-      body: JSON.stringify(subscriberData),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-         error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      setSubscribers([...subscribers, body])
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }
-
   if (currentUser.role === "instructor") {
     return(
       <div>
@@ -110,7 +84,6 @@ const DashboardContainer = props => {
           notifications={notifications}
           events={events}
           subscribers={subscribers}
-          addSubscriber={addSubscriber}
         />
       </div>
     )

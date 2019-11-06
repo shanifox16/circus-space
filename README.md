@@ -9,6 +9,8 @@ Welcome to Circus Space - a communication platform and video repository for circ
 Please visit the application here:
 [Circus Space](https://circusspace.herokuapp.com/)
 
+## Authentication
+
 Circus Space relies on logging in through Google as an instructor or student.
 To view the instructor workflow, please log in using Google with these credentials:
 ```
@@ -28,6 +30,9 @@ password: circusspace
 * React - 16.8.0
 * CarrierWave - 2.0.2
 * Foundation-Rails - 6.5.3.0
+* Omniauth-Google-Oauth2 - 0.8.0
+* Google-Api-Client - 0.34.0
+* HTTParty - 0.17.1
 
 ## To Run Locally
 
