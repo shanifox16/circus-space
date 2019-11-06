@@ -23,7 +23,7 @@ const EventContainer = props => {
     eventDate = eventInfo.toDateString()
     if (eventInfo.getHours() === 24) {
       ampm = "am"
-    } else if (eventInfo.getHours() <= 12) {
+    } else if (eventInfo.getHours() < 12) {
       ampm = "am"
     } else {
       ampm = "pm"
@@ -49,7 +49,7 @@ const EventContainer = props => {
           <div className="cell today-date">{todayDate}</div>
         </div>
         <div className="today-header">
-          <img src="/assets/powered_by_google.jpg" className="google-image"></img>
+          <img src="https://circus-space-development.s3.amazonaws.com/uploads/static_images/powered_by_google.jpg" className="google-image"></img>
           <div className="today-word">Today</div>
         </div>
       </div>

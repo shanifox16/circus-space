@@ -11,9 +11,8 @@
   <% if current_user %>
     <nav class="top-bar top-bar-signed-in left">
       <section class="top-bar-section">
-        <a href="/"><img class="logo" src="/assets/logo.jpg"></img></a>
+        <a href="/"><img class="logo" src="https://circus-space-development.s3.amazonaws.com/uploads/static_images/logo.jpg"></img></a>
       </section>
-
 
       <section class="top-bar-section grid-x grid-margin-x">
         <ul class="right top-bar-right">
@@ -24,29 +23,58 @@
             <% end %>
           </div>
         </ul>
-        <div class="top-bar">
-          <div class="top-bar-right">
-            <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
-              <li>
-                <a href="#" class="fa fa-2x fa-bars"></a>
-                <ul class="menu vertical nested">
-                  <li>
-                    <a href="/courses">Courses</a>
-                  </li>
-                  <li>
-                    <a href="#">Videos</a>
-                    <ul class="menu vertical nested">
-                      <li><a href="/personal_videos">Public Videos</a></li>
-                      <li><a href="/personal_videos/new">Post Video</a></li>
-                      <li><a href="/users/<%= current_user.id %>/personal_videos">My Videos</a></li>
-                    </ul>
-                  </li>
-                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </li>
-            </ul>
+        <% if current_user.role === "instructor" %>
+          <div class="top-bar">
+            <div class="top-bar-right">
+              <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+                <li>
+                  <a href="#" class="fa fa-2x fa-bars"></a>
+                  <ul class="menu vertical nested">
+                    <li>
+                      <a href="/events/new">Create Event</a>
+                    </li>
+                    <li>
+                      <a href="/courses">Courses</a>
+                    </li>
+                    <li>
+                      <a href="#">Videos</a>
+                      <ul class="menu vertical nested">
+                        <li><a href="/personal_videos">All Public Videos</a></li>
+                        <li><a href="/users/<%= current_user.id %>/personal_videos">My Videos</a></li>
+                        <li><a href="/personal_videos/new">Post Video</a></li>
+                      </ul>
+                    </li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% else %>
+          <div class="top-bar">
+            <div class="top-bar-right">
+              <ul class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
+                <li>
+                  <a href="#" class="fa fa-2x fa-bars"></a>
+                  <ul class="menu vertical nested">
+                    <li>
+                      <a href="/courses">Courses</a>
+                    </li>
+                    <li>
+                      <a href="#">Videos</a>
+                      <ul class="menu vertical nested">
+                        <li><a href="/personal_videos">All Public Videos</a></li>
+                        <li><a href="/users/<%= current_user.id %>/personal_videos">My Videos</a></li>
+                        <li><a href="/personal_videos/new">Post Video</a></li>
+                      </ul>
+                    </li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       </section>
     </nav>
   <% else %>
