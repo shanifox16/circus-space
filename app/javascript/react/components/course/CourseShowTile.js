@@ -18,7 +18,7 @@ const CourseShowTile = props => {
   const studentData = students.map(student => {
     return(
       <StudentTile
-        key={student.id}
+        key={`${props.course.id}${student.id}`}
         firstName={student.fname}
         lastName={student.lname}
       />

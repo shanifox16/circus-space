@@ -27,6 +27,7 @@ const CourseIndexContainer = props => {
   const courseData = courses.map(course => {
     return(
       <CourseIndexTile
+        key={course.id}
         course={course}
       />
     )
