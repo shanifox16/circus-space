@@ -2,6 +2,7 @@ require "google/apis/calendar_v3"
 
 class Api::V1::NotificationsController < ApiController
   def index
+    events = false
     auth = Signet::OAuth2::Client.new(
       token_credential_uri: 'https://oauth2.googleapis.com/token',
       access_token: current_user.access_token,
@@ -12,14 +13,16 @@ class Api::V1::NotificationsController < ApiController
     auth.expires_in = 1.week.from_now
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
-    calendar.authorization.refresh!
+    if !calendar.authorization.access_token.nil?
+      calendar.authorization.refresh!
 
-    events = calendar.list_events("primary",
-      time_max: (DateTime.now).rfc3339,
-      single_events: true,
-      order_by: "startTime",
-      time_min: (DateTime.now-1).rfc3339
-    )
+      events = calendar.list_events("primary",
+        time_max: (DateTime.now).rfc3339,
+        single_events: true,
+        order_by: "startTime",
+        time_min: (DateTime.now-1).rfc3339
+      )
+    end
 
     mailchimpData = HTTParty.get('https://us20.api.mailchimp.com/3.0/lists/fa6ed98e87/members',
       basic_auth: {username: ENV["MAILCHIMP_USERNAME"], password: ENV["MAILCHIMP_PASSWORD"]}
@@ -72,9 +75,11 @@ class Api::V1::NotificationsController < ApiController
       commentCount += 1
     end
 
-    events.items.each do |event|
-      notification_list << event_info(event)
-      eventCount += 1
+    if events
+      events.items.each do |event|
+        notification_list << event_info(event)
+        eventCount += 1
+      end
     end
 
     recentVideos.each do |video|
