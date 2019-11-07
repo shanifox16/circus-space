@@ -2,6 +2,12 @@ require "google/apis/calendar_v3"
 
 class Api::V1::EventsController < ApiController
   def index
+    no_events = [{
+      start: {
+        date_time: Date.today()
+      },
+      summary: "None yet! Log in using Google for access to your events"
+      }]
     auth = Signet::OAuth2::Client.new(
       token_credential_uri: 'https://oauth2.googleapis.com/token',
       access_token: current_user.access_token,
@@ -12,15 +18,19 @@ class Api::V1::EventsController < ApiController
     auth.expires_in = 1.week.from_now
     calendar = Google::Apis::CalendarV3::CalendarService.new
     calendar.authorization = auth
-    calendar.authorization.refresh!
+    if !calendar.authorization.access_token.nil?
+      calendar.authorization.refresh!
 
-    events = calendar.list_events("primary",
-      time_max: (DateTime.now+14).rfc3339,
-      single_events: true,
-      order_by: "startTime",
-      time_min: (DateTime.now-1).rfc3339
-    )
-    render json: events.items
+      events = calendar.list_events("primary",
+        time_max: (DateTime.now+14).rfc3339,
+        single_events: true,
+        order_by: "startTime",
+        time_min: (DateTime.now-1).rfc3339
+      )
+      render json: events.items
+    else
+      render json: no_events
+    end
   end
 
   def create
