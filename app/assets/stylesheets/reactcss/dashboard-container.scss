@@ -60,4 +60,28 @@
     height: 270px;
     margin-left: 5px;
   }
+
+  @media (min-width: 1600px) {
+    .top-left-square {
+      margin-left: 15%;
+    }
+    .bottom-left-square {
+      margin-left: 15%;
+    }
+    .top-row-squares {
+      margin-top: 6%;
+    }
+    .bottom-row-squares {
+      margin-top: -200px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .top-left-square {
+      height: 0;
+    }
+    .bottom-middle-square {
+      height: 0;
+    }
+  }
 }
