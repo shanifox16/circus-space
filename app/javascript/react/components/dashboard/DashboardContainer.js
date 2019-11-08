@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import InstructorDashboardContainer from "./InstructorDashboardContainer"
 import StudentDashboardContainer from "./StudentDashboardContainer"
+import fetchSubscribers from "../pojos/fetchSubscribers"
+import fetchEvents from "../pojos/fetchEvents"
+import fetchNotifications from "../pojos/fetchNotifications"
 
 const DashboardContainer = props => {
   const [currentUser, setCurrentUser] = useState({})
@@ -11,56 +14,20 @@ const DashboardContainer = props => {
   const [activityData, setActivityData] = useState([])
 
   useEffect(() => {
-    fetch('/api/v1/notifications')
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
+    fetchNotifications().then(body => {
       setCurrentUser(body.current_user)
       setUsers(body.users)
       setNotifications(body.notifications)
       setActivityData(body.activity_data)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
 
-    fetch('/api/v1/events')
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
+    fetchEvents().then(body => {
       setEvents(body)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
 
-    fetch('/api/v1/subscribers')
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
+    fetchSubscribers().then(body => {
       setSubscribers(body)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
   if (currentUser.role === "instructor") {
