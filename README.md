@@ -12,12 +12,13 @@ Please visit the application here:
 ## Authentication
 
 Circus Space relies on logging in through Google as an instructor or student.
+
 To view the instructor workflow, please log in using Google with these credentials:
 ```
 email: circusspaceinstructor@gmail.com
 password: circusspace
 ```
-To view the instructor workflow, please log in using Google with these credentials:
+To view the student workflow, please log in using Google with these credentials:
 ```
 email: circusspacestudent3@gmail.com
 password: circusspace
