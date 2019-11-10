@@ -1,5 +1,7 @@
+@import '../colors';
+
 .summary-comments-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   height: 100vh;
   border-left-style: solid;
   border-left-width: thin;

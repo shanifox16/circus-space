@@ -1,8 +1,10 @@
+@import '../colors';
+
 .dashboard-container {
 
   .activity-container {
     height: 100vh;
-    background-color: #C3CFEE;
+    background-color: $background-blue;
   }
 
   .top-row-squares {
@@ -39,7 +41,7 @@
   }
 
   .bottom-left-square {
-    background-color: #C3CFEE;
+    background-color: $background-blue;
     width: 270px;
     height: 270px;
     margin-left: 5px;
@@ -55,7 +57,7 @@
   }
 
   .bottom-right-square {
-    background-color: #C3CFEE;
+    background-color: $background-blue;
     width: 270px;
     height: 270px;
     margin-left: 5px;

@@ -1,7 +1,9 @@
+@import '../colors';
+
 .video-show-tile {
   .video-background {
     margin: 0 20%;
-    background-color: #C3CFEE;
+    background-color: $background-blue;
     border-radius: 20px;
     border-style: solid;
     border-width: thin;

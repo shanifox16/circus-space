@@ -1,5 +1,7 @@
+@import '../colors';
+
 .course-show-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   height: 100%;
   padding: 15%;
   list-style-type: none;
