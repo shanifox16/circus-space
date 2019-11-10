@@ -8,7 +8,7 @@
   min-height: 200px;
   border-style: solid;
   border-width: thin;
-  border-color: #868388;
+  border-color: $border-grey;
 
   .title {
     margin-bottom: 0;
@@ -47,7 +47,7 @@
 
   a {
     color: #000000;
-    background-color: #E691B9;
+    background-color: $button-pink;
     padding: 20px 15px;
     border-radius: 10px;
   }

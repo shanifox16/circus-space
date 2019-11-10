@@ -20,14 +20,14 @@
   }
 
   .accordian-menu > li.is-accordian-submenu-parent > button::after{
-    border-color: #FDFDFC rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-color: $off-white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
   }
 
   .is-submenu-item {
-    background-color: #FDFDFC;
+    background-color: $off-white;
     border-top-style: solid;
     border-top-width: thin;
-    border-top-color: #868388;
+    border-top-color: $border-grey;
     text-align: center;
   }
 
@@ -44,7 +44,7 @@
   background-color: #311A63;
 
   .fa-bars {
-    color: #FDFDFC;
+    color: $off-white;
   }
 
   .right {
@@ -62,8 +62,8 @@
   }
 
   .search-button {
-    background-color: #E691B9;
-    border-color: #E691B9;
+    background-color: $button-pink;
+    border-color: $button-pink;
     border-radius: 10px;
   }
 

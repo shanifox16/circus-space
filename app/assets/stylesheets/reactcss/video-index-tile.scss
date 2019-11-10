@@ -8,7 +8,7 @@
   border-radius: 20px;
   border-style: solid;
   border-width: thin;
-  border-color: #868388;
+  border-color: $border-grey;
 
   .video-tile {
     cursor: pointer;
@@ -16,11 +16,11 @@
   }
 
   .fa-check {
-    color: #128A49;
+    color: $green;
   }
 
   .fa-times-red {
-    color: #E54040;
+    color: $red;
   }
 
   .title-true {
@@ -28,7 +28,7 @@
   }
 
   .delete-icon {
-    color: #868388;
+    color: $border-grey;
     align-items: left;
     text-align: left;
     padding-left: 10px;

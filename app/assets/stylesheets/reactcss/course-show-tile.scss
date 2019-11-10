@@ -7,7 +7,7 @@
   list-style-type: none;
   border-right-style: solid;
   border-right-width: thin;
-  border-right-color: #868388;
+  border-right-color: $border-grey;
 
   h6 {
     font-weight: bold;
@@ -19,26 +19,26 @@
   }
 
   .instructor {
-    background-color: #F2D0E0;
+    background-color: $light-pink;
     padding: 10px 5px;
     border-radius: 20px;
     border-style: solid;
     border-width: thin;
-    border-color: #868388;
+    border-color: $border-grey;
   }
 
   .student {
-    background-color: #F2D0E0;
+    background-color: $light-pink;
     padding: 10px 5px;
     margin: 10px;
     border-radius: 20px;
     border-style: solid;
     border-width: thin;
-    border-color: #868388;
+    border-color: $border-grey;
   }
 
   .fa-child {
     padding-right: 20px;
-    color: #868388;
+    color: $border-grey;
   }
 }
