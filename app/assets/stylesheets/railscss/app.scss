@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import '../colors';
 
 #app {
-  background-color: #F4F4F4;
+  background-color: $background-grey;
 }

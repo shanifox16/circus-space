@@ -1,11 +1,13 @@
+@import '../colors';
+
 .video-show-tile {
   .video-background {
     margin: 0 20%;
-    background-color: #C3CFEE;
+    background-color: $background-blue;
     border-radius: 20px;
     border-style: solid;
     border-width: thin;
-    border-color: #868388;
+    border-color: $border-grey;
   }
 
   .video-header {
@@ -27,18 +29,18 @@
   }
 
   .fa-check {
-    color: #128A49;
+    color: $green;
   }
 
   .fa-times {
-    color: #E54040;
+    color: $red;
   }
 
   .instructor-certify {
-    background-color: #E691B9;
+    background-color: $button-pink;
     border-style: solid;
     border-width: thin;
-    border-color: #868388;
+    border-color: $border-grey;
     padding-top: 10px;
     padding-bottom: 15px;
     border-radius: 15px;

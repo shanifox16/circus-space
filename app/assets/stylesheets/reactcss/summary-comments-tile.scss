@@ -1,9 +1,11 @@
+@import '../colors';
+
 .summary-comments-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   height: 100vh;
   border-left-style: solid;
   border-left-width: thin;
-  border-left-color: #868388;
+  border-left-color: $border-grey;
 
   .comment-header {
     font-weight: bold;
@@ -18,14 +20,14 @@
 
   .student {
     .comment-body {
-      background-color: #F4F4F4;
+      background-color: $background-grey;
       padding: 5% 1% 1% 5%;
       margin-right: 50px;
       border-radius: 20px;
       border-top-left-radius: 0px;
       border-style: solid;
       border-width: thin;
-      border-color: #868388;
+      border-color: $border-grey;
     }
   }
 
@@ -38,21 +40,21 @@
       border-top-left-radius: 0px;
       border-style: solid;
       border-width: thin;
-      border-color: #868388;
+      border-color: $border-grey;
     }
   }
 
   .current-user {
     text-align: right;
     .comment-body {
-      background-color: #F2D0E0;
+      background-color: $light-pink;
       padding: 5% 5% 1% 1%;
       margin-left: 50px;
       border-radius: 20px;
       border-top-right-radius: 0px;
       border-style: solid;
       border-width: thin;
-      border-color: #868388;
+      border-color: $border-grey;
     }
   }
 }

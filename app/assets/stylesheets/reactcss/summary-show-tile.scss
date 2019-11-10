@@ -1,12 +1,14 @@
+@import '../colors';
+
 .summary-show-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   margin-top: 5%;
   margin-left: 15%;
   margin-right: 15%;
   border-radius: 20px;
   border-style: solid;
   border-width: thin;
-  border-color: #868388;
+  border-color: $border-grey;
 
   .summary-text {
     margin-top: 7%;

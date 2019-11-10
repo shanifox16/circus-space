@@ -1,11 +1,13 @@
+@import '../colors';
+
 .course-index-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   margin-bottom: 30px;
   border-radius: 20px;
   padding-top: 20px;
   border-style: solid;
   border-width: thin;
-  border-color: #868388;
+  border-color: $border-grey;
 
   a {
     font-weight: bold;
@@ -26,7 +28,7 @@
 
     .fa-child {
       padding-right: 10px;
-      color: #868388;
+      color: $border-grey;
     }
   }
 }

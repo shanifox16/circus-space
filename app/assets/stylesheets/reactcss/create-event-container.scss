@@ -1,3 +1,5 @@
+@import '../colors';
+
 .event-form {
   height: 100%;
 
@@ -7,26 +9,26 @@
   }
 
   form {
-    background-color: #C3CFEE;
+    background-color: $background-blue;
     padding: 5%;
     padding-bottom: 3%;
     border-radius: 20px;
     margin: 0 25%;
     border-style: solid;
     border-width: thin;
-    border-color: #868388;
+    border-color: $border-grey;
 
     .form-header {
       padding-bottom: 15px;
     }
 
     input {
-      border-color: #F4F4F4;
+      border-color: $background-grey;
     }
 
     .submit-button {
-      background-color: #E691B9;
-      border-color: #E691B9;
+      background-color: $button-pink;
+      border-color: $button-pink;
       padding: 15px;
       border-radius: 10px;
       margin-top: 10px;

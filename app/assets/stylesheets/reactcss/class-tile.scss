@@ -1,12 +1,14 @@
+@import '../colors';
+
 .class-tile {
-  background-color: #C3CFEE;
+  background-color: $background-blue;
   margin-bottom: 25px;
   border-radius: 20px;
   margin-top: 2%;
   min-height: 200px;
   border-style: solid;
   border-width: thin;
-  border-color: #868388;
+  border-color: $border-grey;
 
   .title {
     margin-bottom: 0;
@@ -45,7 +47,7 @@
 
   a {
     color: #000000;
-    background-color: #E691B9;
+    background-color: $button-pink;
     padding: 20px 15px;
     border-radius: 10px;
   }

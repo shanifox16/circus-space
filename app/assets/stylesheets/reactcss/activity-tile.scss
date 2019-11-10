@@ -1,5 +1,7 @@
+@import '../colors';
+
 .activity-tile {
-  background-color: #F4F4F4;
+  background-color: $background-grey;
   margin: 5% 9% 2% 9%;
   padding: 3%;
   border-radius: 10px;
@@ -30,23 +32,23 @@
   }
 
   .fa-comments {
-    color: #66CEC8;
+    color: $teal;
   }
 
   .fa-list {
-    color: #ECB4CF;
+    color: $summary-pink;
   }
 
   .fa-paper-plane {
-    color: #F2D076;
+    color: $yellow;
   }
 
   .fa-heartbeat {
-    color: #D18AEA;
+    color: $heart-purple;
   }
 
   .fa-video-camera {
-    color: #479FD9;
+    color: $camera-blue;
   }
 
   a {
